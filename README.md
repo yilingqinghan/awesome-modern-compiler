@@ -3,13 +3,11 @@
   <img src="assets/imgs/cg.png" width="120" alt="Logo" style="zoom: 25%;">
 </span>
 
-
-
-### **🌐 About This Site**
+ **🌐 About This Site**
 
 This website is a curated learning portal for compiler enthusiasts and systems programmers. It offers tutorials, academic resources, expert profiles, project showcases, and interactive tools — all centered around LLVM, GCC, and modern compilation technologies.
 
-### **🚀 Live Demo**
+** 🚀 Live Demo **
 
 You can explore the live version of this site at: https://yilingqinghan.github.io/awesome-modern-compiler/
 
@@ -75,12 +73,12 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 
 ### Conferences
 
-- [CGO](https://dl.acm.org/conference/cgo) :: CORE A*, CCF B
-- [PLDI](https://dl.acm.org/conference/pldi) :: CORE A*, CCF A
+- [CGO](https://dl.acm.org/conference/cgo) `CORE A*` `CCF B`
+- [PLDI](https://dl.acm.org/conference/pldi) `CORE A*` `CCF A`
 
 ### Journals
 
-- [CGO](https://dl.acm.org/conference/cgo) :: CORE A*, CCF B
-- [PLDI](https://dl.acm.org/conference/pldi) :: CORE A*, CCF A
+- [CGO](https://dl.acm.org/conference/cgo) `CORE A*` `CCF B`
+- [PLDI](https://dl.acm.org/conference/pldi) `CORE A*` `CCF A`
 
 ### Workshops

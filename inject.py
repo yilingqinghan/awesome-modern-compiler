@@ -23,6 +23,8 @@ def parse_md_sections(md_text):
         start = end
         finish = heads[i+1][0] if i+1 < len(heads) else len(md_text)
         sections.append(md_text[start:finish])
+#     for i,j in enumerate(sections):
+#         print(i,j)
     return sections
 
 def parse_section_items(section_text):
@@ -246,7 +248,7 @@ def main():
             menu6_items  = parse_section_items(sections[5]) if len(sections) > 5 else []
             menu7_items  = parse_section_items(sections[6]) if len(sections) > 6 else []
             menu8_items  = parse_section_items(sections[7]) if len(sections) > 7 else []
-            menu10_items = parse_section_items(sections[9]) if len(sections) > 9 else []
+            menu9_items = parse_section_items(sections[8]) if len(sections) > 8 else []
             menu12_items = parse_section_items(sections[11]) if len(sections) > 11 else []
             menu14_items = parse_menu14_items(sections[13]) if len(sections) > 13 else []
             menu15_items = parse_menu14_items(sections[14]) if len(sections) > 14 else []
@@ -256,16 +258,16 @@ def main():
 
             html = inject_menu_generic(html, menu2_items, 2)
             html = inject_menu_generic(html, menu3_items, 3)
-            html = inject_menu4(html, menu4_items)
-            html = inject_menu5(html, menu5_items)
             html = inject_menu_generic(html, menu6_items, 6)
             html = inject_menu_generic(html, menu7_items, 7)
             html = inject_menu_generic(html, menu8_items, 8)
+            html = inject_menu_generic(html, menu9_items, 9)
+            html = inject_menu_generic(html, menu12_items, 12)
+            html = inject_menu4(html, menu4_items)
+            html = inject_menu5(html, menu5_items)
             html = inject_menu13(html, menu13_items)
             html = inject_menu14(html, menu14_items)
             html = inject_menu15(html, menu15_items)
-            html = inject_menu_generic(html, menu10_items, 10)
-            html = inject_menu_generic(html, menu12_items, 12)
 
         with open(html_path, 'w', encoding='utf-8') as f:
             f.write(html)
