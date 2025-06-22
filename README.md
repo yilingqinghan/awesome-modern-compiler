@@ -7,7 +7,7 @@
 
 This website is a curated learning portal for compiler enthusiasts and systems programmers. It offers tutorials, academic resources, expert profiles, project showcases, and interactive tools — all centered around LLVM, GCC, and modern compilation technologies.
 
-** 🚀 Live Demo **
+**🚀 Live Demo**
 
 You can explore the live version of this site at: https://yilingqinghan.github.io/awesome-modern-compiler/
 
