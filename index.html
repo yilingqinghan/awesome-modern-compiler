@@ -46,8 +46,8 @@
 <!--Search form-->
 <aside class="custom-scrollbar-2 offcanvas-search position-right" id="search-wrapper">
     <div class="row no-gutters">
-        <div class="col-1-5"></div>
-        <div class="col-4-5 position-relative secondary-bg pt-120">
+        <div class="col-4-5"></div>
+        <div class="col-1-5 position-relative secondary-bg pt-120">
             <div class="offcanvas-inner color-white main-search-form transition-02s">
                 <h2 class="font-x-large">Search</h2>
                 <div class="pt-10 pb-50 main-search-form-cover">
@@ -55,34 +55,10 @@
                         <div class="col-12">
                             <form action="#" class="search-form position-relative" method="get">
                                 <label>
-                                    <input class="search_field" name="s" placeholder="Enter keywords for search..."
-                                           type="text" value=""/>
+                                    <input class="search_field" name="s" placeholder="Enter↵" type="text" value=""/>
                                 </label>
-                                <div class="search-switch">
-                                    <ul class="list-inline color-grey">
-                                        <li class="list-inline-item"><i class="ti-book mr-5"></i><a class="active"
-                                                                                                    href="#">Articles</a>
-                                        </li>
-                                        <li class="list-inline-item"><i class="ti-user mr-5"></i><a href="#">Authors</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <span id="search_result" style="margin-left: 10px; font-size: 0.9em; color: white;"></span>
                             </form>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 font-medium suggested-area">
-                            <p class="d-inline font-medium suggested"><strong>Suggested:</strong></p>
-                            <ul class="list-inline d-inline-block">
-                                <li class="list-inline-item"><a href="#">Covid-19</a></li>
-                                <li class="list-inline-item"><a href="#">Health</a></li>
-                                <li class="list-inline-item"><a href="#">WFH</a></li>
-                                <li class="list-inline-item"><a href="#">UltraNet</a></li>
-                                <li class="list-inline-item"><a href="#">Hospital</a></li>
-                                <li class="list-inline-item"><a href="#">Policies</a></li>
-                                <li class="list-inline-item"><a href="#">Energy</a></li>
-                                <li class="list-inline-item"><a href="#">Business</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -109,8 +85,7 @@
                     <ul class="header-social-network d-inline-block list-inline">
                         <li class="list-inline-item"><a class="social-icon facebook-icon text-xs-center" href="https://github.com/yilingqinghan"
                                                         target="_blank"><i class="ti-github"></i></a></li>
-                        <li class="list-inline-item"><a class="social-icon facebook-icon text-xs-center" href="index.zh.html"
-                                                        target="_blank">简体中文</a></li>
+                        <li class="list-inline-item"><a class="social-icon facebook-icon text-xs-center" href="index.zh.html">简体中文</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 text-center">
@@ -598,6 +573,104 @@
             // 可选：更新地址栏 hash
             history.pushState(null, '', this.getAttribute('href'));
         });
+    });
+</script>
+<script>
+    let matchElements = [];
+    let currentIndex = 0;
+
+    // 清除所有高亮
+    function resetHighlights() {
+        matchElements.forEach(el => {
+            el.style.backgroundColor = '';
+            el.style.outline = '';
+        });
+    }
+
+    // 执行一次新查找
+    function searchAndHighlight() {
+        const input = document.querySelector('.search_field');
+        const keyword = input.value.trim().toLowerCase();
+        const resultSpan = document.getElementById('search_result');
+        // 重置
+        resetHighlights();
+        matchElements = [];
+        currentIndex = 0;
+
+        if (!keyword) {
+            resultSpan.textContent = '';
+            return;
+        }
+
+        // 按需选定要搜索的元素类型
+        const elements = document.querySelectorAll('h1, h2, h3, p, li, a');
+        elements.forEach(el => {
+            if (el.textContent.toLowerCase().includes(keyword)) {
+                matchElements.push(el);
+                el.style.backgroundColor = 'yellow';
+            }
+        });
+
+        if (matchElements.length) {
+            resultSpan.textContent = `${matchElements.length} item(s)`;
+            scrollToMatch(0);
+        } else {
+            resultSpan.textContent = 'NoT found';
+        }
+    }
+
+    // 跳转到某个匹配项并加边框
+    function scrollToMatch(idx) {
+        if (!matchElements.length) return;
+        const el = matchElements[idx];
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.style.outline = '2px solid orange';
+    }
+
+    // 上一项
+    function prevMatch() {
+        if (!matchElements.length) return;
+        resetHighlights();
+        currentIndex = (currentIndex - 1 + matchElements.length) % matchElements.length;
+        scrollToMatch(currentIndex);
+    }
+
+    // 下一项
+    function nextMatch() {
+        if (!matchElements.length) return;
+        resetHighlights();
+        currentIndex = (currentIndex + 1) % matchElements.length;
+        scrollToMatch(currentIndex);
+    }
+
+    // 输入框内容变化时，清除旧结果
+    document.querySelector('.search_field').addEventListener('input', () => {
+        resetHighlights();
+        matchElements = [];
+        currentIndex = 0;
+        document.getElementById('search_result').textContent = '';
+    });
+
+    // 拦截键盘事件
+    document.querySelector('.search_field').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();       // 阻止表单提交和刷新
+            searchAndHighlight();     // 新搜索
+        }
+        else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            nextMatch();              // 下一个
+        }
+        else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            prevMatch();              // 上一个
+        }
+    });
+
+    // 搜索按钮
+    document.getElementById('search_button').addEventListener('click', function(e) {
+        e.preventDefault();
+        searchAndHighlight();
     });
 </script>
 </body>

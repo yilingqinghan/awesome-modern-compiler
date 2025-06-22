@@ -1,8 +1,9 @@
 <h1 style="text-align:center">awesome-modern-compiler</h1>
+<span style="text-align: center;">
+  <img src="assets/imgs/cg.png" width="120" alt="Logo" style="zoom: 25%;">
+</span>
 
-<div style="text-align: center;">
-  <img src="assets/imgs/cg.png" width="180" alt="Logo" style="zoom: 25%;">
-</div>
+
 
 ### **🌐 About This Site**
 
@@ -32,12 +33,17 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 
 ## Open Source Git Repositories
 
-- [LLVM](https://github.com/llvm/llvm-project) `![llvm](https://llvm.org/img/LLVMWyvernSmall.png)`
-- [GCC](https://gcc.gnu.org/) `![gcc](https://upload.wikimedia.org/wikipedia/commons/a/af/GNU_Compiler_Collection_logo.svg)`
-- [CompCert](https://github.com/AbsInt/CompCert) `![compcert](https://compcert.org/acm-award-2.png)`
-- [CIRCT](https://github.com/llvm/circt) `![circt](https://circt.llvm.org/includes/img/circt-logo.svg)`
-- [GraalVM](https://github.com/oracle/graal) `![graal](https://github.com/oracle/graal/raw/master/.github/assets/logo_320x64.svg)`
-- [TVM](https://github.com/apache/tvm) `![tvm](https://raw.githubusercontent.com/apache/tvm-site/main/images/logo/tvm-logo-small.png)`
+- [LLVM](https://github.com/llvm/llvm-project) <!--![llvm](https://llvm.org/img/LLVMWyvernSmall.png)-->
+
+- [GCC](https://gcc.gnu.org/) <!--![gcc](https://upload.wikimedia.org/wikipedia/commons/a/af/GNU_Compiler_Collection_logo.svg)-->
+
+- [CompCert](https://github.com/AbsInt/CompCert) <!--![compcert](https://compcert.org/acm-award-2.png)-->
+
+- [CIRCT](https://github.com/llvm/circt) <!--![circt](https://circt.llvm.org/includes/img/circt-logo.svg)-->
+
+- [GraalVM](https://github.com/oracle/graal) <!--![graal](https://github.com/oracle/graal/raw/master/.github/assets/logo_320x64.svg)-->
+
+- [TVM](https://github.com/apache/tvm) <!--![tvm](https://raw.githubusercontent.com/apache/tvm-site/main/images/logo/tvm-logo-small.png)-->
 
 ## Influential Papers and Surveys
 

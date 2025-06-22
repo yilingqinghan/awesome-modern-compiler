@@ -55,10 +55,19 @@ def parse_menu4_items(section_text: str) -> list:
     return items
 
 def parse_menu5_items(section_text: str) -> list:
+    """
+    从 menu5 Markdown 段落解析 HTML 注释包裹的图片语法：
+      - [Name](url) <!--![img](img_url)-->
+    返回 [{'name': name, 'href': url, 'img': img_url}, ...]
+    """
     items = []
+    # 只匹配形如: - [Name](url) <!--![...](img_url)-->
+    pattern = re.compile(
+        r'- \[([^\]]+)\]\(([^)]+)\)\s*<!--\s*!\[[^\]]*\]\(([^)]+)\)\s*-->'
+    )
     for line in section_text.splitlines():
         line = line.strip()
-        m = re.match(r'- \[([^\]]+)\]\(([^)]+)\)\s*`?!\[[^\]]*\]\(([^)]+)\)`?', line)
+        m = pattern.match(line)
         if m:
             name, href, img = m.groups()
             items.append({'name': name, 'href': href, 'img': img})
