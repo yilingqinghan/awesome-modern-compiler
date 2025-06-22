@@ -93,16 +93,21 @@ def parse_menu13_items(section_text: str) -> list:
 def parse_menu14_items(section_text: str) -> list:
     """
     解析 menu14 Markdown 格式:
-    - [会议名](链接) :: CORE评级, CCF评级
-    返回 [{'name': ..., 'href': ..., 'tags': [...]}, ...]
+    - [会议名](链接) `CORE评级` `CCF评级`
+    返回 [{'name': name, 'href': url, 'tags': [...]}, ...]
     """
     items = []
+    # 匹配反引号包裹的多个评级标签
+    pattern = re.compile(
+        r'- \[([^\]]+)\]\(([^)]+)\)\s*((?:`[^`]+`\s*)+)'
+    )
     for line in section_text.splitlines():
         line = line.strip()
-        m = re.match(r'- \[([^\]]+)\]\(([^)]+)\)\s*::\s*(.+)', line)
+        m = pattern.match(line)
         if m:
-            name, href, tag_str = m.groups()
-            tags = [t.strip() for t in tag_str.split(',')]
+            name, href, tags_part = m.groups()
+            # 提取所有反引号内的标签（去掉反引号）
+            tags = re.findall(r'`([^`]+)`', tags_part)
             items.append({'name': name, 'href': href, 'tags': tags})
     return items
 

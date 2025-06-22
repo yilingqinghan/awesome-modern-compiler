@@ -16,12 +16,17 @@
 
 ## 开源Git仓库
 
-- [LLVM](https://github.com/llvm/llvm-project) `![llvm](https://llvm.org/img/LLVMWyvernSmall.png)`
-- [GCC](https://gcc.gnu.org/) `![gcc](https://upload.wikimedia.org/wikipedia/commons/a/af/GNU_Compiler_Collection_logo.svg)`
-- [CompCert](https://github.com/AbsInt/CompCert) `![compcert](https://compcert.org/acm-award-2.png)`
-- [CIRCT](https://github.com/llvm/circt) `![circt](https://circt.llvm.org/includes/img/circt-logo.svg)`
-- [GraalVM](https://github.com/oracle/graal) `![graal](https://github.com/oracle/graal/raw/master/.github/assets/logo_320x64.svg)`
-- [TVM](https://github.com/apache/tvm) `![tvm](https://raw.githubusercontent.com/apache/tvm-site/main/images/logo/tvm-logo-small.png)`
+- [LLVM](https://github.com/llvm/llvm-project) <!--![llvm](https://llvm.org/img/LLVMWyvernSmall.png)-->
+
+- [GCC](https://gcc.gnu.org/) <!--![gcc](https://upload.wikimedia.org/wikipedia/commons/a/af/GNU_Compiler_Collection_logo.svg)-->
+
+- [CompCert](https://github.com/AbsInt/CompCert) <!--![compcert](https://compcert.org/acm-award-2.png)-->
+
+- [CIRCT](https://github.com/llvm/circt) <!--![circt](https://circt.llvm.org/includes/img/circt-logo.svg)-->
+
+- [GraalVM](https://github.com/oracle/graal) <!--![graal](https://github.com/oracle/graal/raw/master/.github/assets/logo_320x64.svg)-->
+
+- [TVM](https://github.com/apache/tvm) <!--![tvm](https://raw.githubusercontent.com/apache/tvm-site/main/images/logo/tvm-logo-small.png)-->
 
 ## 高引用论文与综述
 
@@ -53,14 +58,12 @@
 
 ### 会议
 
-- [CGO](https://dl.acm.org/conference/cgo) :: CORE A*, CCF B  
-
-- [PLDI](https://dl.acm.org/conference/pldi) :: CORE A*, CCF A
+- [CGO](https://dl.acm.org/conference/cgo) `CORE A*` `CCF B`
+- [PLDI](https://dl.acm.org/conference/pldi) `CORE A*` `CCF A`
 
 ### 期刊
 
-- [CGO](https://dl.acm.org/conference/cgo) :: CORE A*, CCF B  
-
-- [PLDI](https://dl.acm.org/conference/pldi) :: CORE A*, CCF A
+- [CGO](https://dl.acm.org/conference/cgo) `CORE A*` `CCF B`
+- [PLDI](https://dl.acm.org/conference/pldi) `CORE A*` `CCF A`
 
 ### 研讨会
