@@ -7,6 +7,8 @@
 
 This website is a curated learning portal for compiler enthusiasts and systems programmers. It offers tutorials, academic resources, expert profiles, project showcases, and interactive tools — all centered around LLVM, GCC, and modern compilation technologies.
 
+> [简体中文版](README.zh.md)
+
 **🚀 Live Demo**
 
 You can explore the live version of this site at: https://yilingqinghan.github.io/awesome-modern-compiler/
@@ -44,6 +46,8 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 - [TVM](https://github.com/apache/tvm) <!--![tvm](https://raw.githubusercontent.com/apache/tvm-site/main/images/logo/tvm-logo-small.png)-->
 
 - [Alive2](https://github.com/AliveToolkit/alive2) <!--![alive2](https://github.com/AliveToolkit/alive2/raw/master/imgs/alive2.png)-->
+
+- [llvm-flow](https://github.com/kc-ml2/llvm-flow) <!--![alive2](https://github.com/kc-ml2/llvm-flow/raw/main/logo.png)-->
 
 ## Influential Papers and Surveys
 
