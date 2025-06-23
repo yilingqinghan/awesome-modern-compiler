@@ -55,6 +55,8 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 
 - [V8](https://github.com/v8/v8) <!--![v8](https://avatars.githubusercontent.com/u/113781?s=200&v=4)-->
 
+- [wasmtime](https://github.com/bytecodealliance/wasmtime) <!--![wasmtime](https://avatars.githubusercontent.com/u/54038801?s=200&v=4)-->
+
 ## Influential Papers and Surveys
 
 - [CGO](http://dl.acm.org/doi/10.5555/977395.977673) – LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation
