@@ -51,6 +51,8 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 
 - [upx](https://github.com/upx/upx) <!--![alive2](assets/imgs/git/upx.png)-->
 
+- [moonbit](https://github.com/moonbitlang/core) <!--![alive2](https://avatars.githubusercontent.com/u/124848646?s=200&v=4)-->
+
 ## Influential Papers and Surveys
 
 - [CGO](http://dl.acm.org/doi/10.5555/977395.977673) – LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation

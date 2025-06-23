@@ -34,6 +34,8 @@
 
 - [upx](https://github.com/upx/upx) <!--![alive2](assets/imgs/git/upx.png)-->
 
+- [moonbit](https://github.com/moonbitlang/core) <!--![alive2](https://avatars.githubusercontent.com/u/124848646?s=200&v=4)-->
+
 ## 高引用论文与综述
 
 - [CGO](http://dl.acm.org/doi/10.5555/977395.977673) – LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation
