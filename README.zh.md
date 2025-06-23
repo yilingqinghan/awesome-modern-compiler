@@ -32,6 +32,8 @@
 
 - [llvm-flow](https://github.com/kc-ml2/llvm-flow) <!--![alive2](https://github.com/kc-ml2/llvm-flow/raw/main/logo.png)-->
 
+- [upx](https://github.com/upx/upx) <!--![alive2](assets/imgs/git/upx.png)-->
+
 ## 高引用论文与综述
 
 - [CGO](http://dl.acm.org/doi/10.5555/977395.977673) – LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation
