@@ -79,12 +79,33 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 
 ### Conferences
 
-- [CGO](https://dl.acm.org/conference/cgo) `CORE A*` `CCF B`
+- [CGO](https://dl.acm.org/conference/cgo) `CORE A` `CCF B`
 - [PLDI](https://dl.acm.org/conference/pldi) `CORE A*` `CCF A`
+- [ASPLOS](https://dl.acm.org/conference/asplos) `CORE A*` `CCF A`
+- [CC](https://dl.acm.org/conference/cc) `CORE B*`
+- [PPoPP](https://dl.acm.org/conference/ppopp) `CORE B` `CCF A`
+- [MICRO](https://dl.acm.org/conference/micro) `CORE TBR` `CCF A`
+- [ISCA](https://dl.acm.org/conference/isca) `CORE A*` `CCF A`
+- [EuroSys](https://dl.acm.org/conference/eurosys) `CORE A` `CCF A`
+- [PACT](https://dl.acm.org/conference/pact) `CORE B` `CCF B`
+- [ICS](https://dl.acm.org/conference/ics) `CORE A` `CCF B`
+- [POPL](https://dl.acm.org/conference/popl) `CORE A*` `CCF A`
+- [FSE](https://dl.acm.org/conference/fse) `CORE A*` `CCF A`
+- [OOPSLA](https://dl.acm.org/journal/pacmpl) `CORE A` `CCF A`
+- [ASE](https://dl.acm.org/conference/ase) `CORE A*` `CCF A`
+- [ICSE](https://dl.acm.org/conference/icse) `CORE A*` `CCF A`
+- [ISSTA](https://dl.acm.org/conference/issta) `CORE A` `CCF A`
+- [OSDI](https://dl.acm.org/conference/osdi) `CORE A*` `CCF A`
+- [NeurIPS](https://dl.acm.org/conference/nips) `CORE A*` `CCF A`
+- [EMNLP](https://dl.acm.org/conference/emnlp) `CORE A*` `CCF B`
 
 ### Journals
 
-- [CGO](https://dl.acm.org/conference/cgo) `CORE A*` `CCF B`
-- [PLDI](https://dl.acm.org/conference/pldi) `CORE A*` `CCF A`
+- [TACO](https://dl.acm.org/journal/taco) `JCI 0.46` `JCR Q3` `SCI Q2` `CCF A`
+- [TOCS](https://dl.acm.org/journal/tocs) `JCI 0.52` `JCR Q2` `CCF A`
+- [TOPLAS](https://dl.acm.org/journal/toplas) `JCI 0.57` `JCR Q3` `CCF A`
+- [TOSEM](https://dl.acm.org/journal/tosem) `JCI 1.7` `JCR Q1` `CCF A`
+- [TSE](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=32) `JCI 1.76` `JCR Q1` `CCF A`
+- [ASE](https://link.springer.com/journal/10515) `JCI 0.81` `JCR Q2` `CCF B`
 
 ### Workshops
