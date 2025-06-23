@@ -28,10 +28,6 @@ def parse_md_sections(md_text):
     return sections
 
 def parse_section_items(section_text):
-    """
-    从一个段落里，提取所有 '- [标题](链接) – 描述'，
-    返回 [{'title':…, 'href':…, 'desc':…}, …]
-    """
     items = []
     for line in section_text.splitlines():
         line = line.strip()
@@ -42,10 +38,6 @@ def parse_section_items(section_text):
     return items
 
 def parse_menu4_items(section_text: str) -> list:
-    """
-    从 menu4 Markdown 段落解析条目 '- [Name](url) – tag1, tag2, ...',
-    返回 [{'name': name, 'href': url, 'tags': [tag1, tag2, ...]}, ...]
-    """
     items = []
     for line in section_text.splitlines():
         line = line.strip()
@@ -57,13 +49,7 @@ def parse_menu4_items(section_text: str) -> list:
     return items
 
 def parse_menu5_items(section_text: str) -> list:
-    """
-    从 menu5 Markdown 段落解析 HTML 注释包裹的图片语法：
-      - [Name](url) <!--![img](img_url)-->
-    返回 [{'name': name, 'href': url, 'img': img_url}, ...]
-    """
     items = []
-    # 只匹配形如: - [Name](url) <!--![...](img_url)-->
     pattern = re.compile(
         r'- \[([^\]]+)\]\(([^)]+)\)\s*<!--\s*!\[[^\]]*\]\(([^)]+)\)\s*-->'
     )
@@ -76,11 +62,6 @@ def parse_menu5_items(section_text: str) -> list:
     return items
 
 def parse_menu13_items(section_text: str) -> list:
-    """
-    解析 menu13 Markdown 格式:
-    - [标签名](链接)
-    返回 [{'name': ..., 'href': ...}, ...]
-    """
     items = []
     for line in section_text.splitlines():
         line = line.strip()
@@ -91,13 +72,7 @@ def parse_menu13_items(section_text: str) -> list:
     return items
 
 def parse_menu14_items(section_text: str) -> list:
-    """
-    解析 menu14 Markdown 格式:
-    - [会议名](链接) `CORE评级` `CCF评级`
-    返回 [{'name': name, 'href': url, 'tags': [...]}, ...]
-    """
     items = []
-    # 匹配反引号包裹的多个评级标签
     pattern = re.compile(
         r'- \[([^\]]+)\]\(([^)]+)\)\s*((?:`[^`]+`\s*)+)'
     )
@@ -106,15 +81,11 @@ def parse_menu14_items(section_text: str) -> list:
         m = pattern.match(line)
         if m:
             name, href, tags_part = m.groups()
-            # 提取所有反引号内的标签（去掉反引号）
             tags = re.findall(r'`([^`]+)`', tags_part)
             items.append({'name': name, 'href': href, 'tags': tags})
     return items
 
 def inject_menu_generic(html: str, items: list, marker_id: int) -> str:
-    """
-    通用注入函数：将 items 注入到 <!-- inject-menu{marker_id} --> 标记后
-    """
     marker = f'<!-- inject-menu{marker_id} -->'
     injection = ''.join(
         f'\n<li>'
@@ -128,14 +99,6 @@ def inject_menu_generic(html: str, items: list, marker_id: int) -> str:
     return html.replace(marker, marker + injection)
 
 def inject_menu4(html: str, items: list) -> str:
-    """
-    根据 parse_menu4_items 生成的 items 列表，把人物与标签两列 HTML
-    注入到 <!-- inject-menu4 --> 标记后面。
-    items: [{'name':..., 'href':..., 'tags':[...]}, ...]
-    """
-    # items 已经解析好，直接生成 HTML
-
-    # 1. 左侧人物列
     left = [
         '<div class="col-md-3">',
         '  <div class="entry-main-content">',
@@ -149,7 +112,6 @@ def inject_menu4(html: str, items: list) -> str:
         '</div>',
     ]
 
-    # 2. 右侧标签组
     right = [
         '<div class="col-md-9">',
         '  <ul>',
@@ -169,15 +131,11 @@ def inject_menu4(html: str, items: list) -> str:
         '</div>',
     ]
 
-    # 3. 注入到 <!-- inject-menu4 -->
     injection = '\n' + '\n'.join(left + right)
     return html.replace('<!-- inject-menu4 -->',
                         '<!-- inject-menu4 -->' + injection)
 
 def inject_menu5(html: str, items: list) -> str:
-    """
-    注入 menu5 区块，每 6 个元素包在一个 <div class="row"> 里
-    """
     blocks = []
     for i in range(0, len(items), 6):
         row = ['<div class="row">']
@@ -197,9 +155,6 @@ def inject_menu5(html: str, items: list) -> str:
     return html.replace('<!-- inject-menu5 -->', '<!-- inject-menu5 -->' + injection)
 
 def inject_menu13(html: str, items: list) -> str:
-    """
-    注入 menu13 区块，每项一个 <a class="tag-cloud-link"> 标签
-    """
     links = ''.join(
         f'<a class="tag-cloud-link" href="{it["href"]}">{it["name"]}</a>'
         for it in items
@@ -208,9 +163,6 @@ def inject_menu13(html: str, items: list) -> str:
     return html.replace('<!-- inject-menu13 -->', '<!-- inject-menu13 -->' + injection)
 
 def inject_menu14(html: str, items: list) -> str:
-    """
-    注入 menu14 区块，每项一个 <li>，后跟多个 <span class="badge badge-core">标签</span>
-    """
     lines = []
     for it in items:
         spans = ''.join(f'<span class="badge badge-core">{tag}</span>' for tag in it['tags'])
@@ -219,9 +171,6 @@ def inject_menu14(html: str, items: list) -> str:
     return html.replace('<!-- inject-menu14 -->', '<!-- inject-menu14 -->' + injection)
 
 def inject_menu15(html: str, items: list) -> str:
-    """
-    注入 menu15 区块，每项一个 <li>，后跟多个 <span class="badge badge-core">标签</span>
-    """
     lines = []
     for it in items:
         spans = ''.join(f'<span class="badge badge-core">{tag}</span>' for tag in it['tags'])
@@ -231,8 +180,7 @@ def inject_menu15(html: str, items: list) -> str:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--revert', action='store_true',
-                        help='删除所有 inject-menuN 与 inject-menuN-end 之间的内容')
+    parser.add_argument('--revert', action='store_true')
     args = parser.parse_args()
 
     targets = [

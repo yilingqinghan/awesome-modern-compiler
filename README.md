@@ -83,6 +83,8 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 
 ## Emerging Trends
 
+- See Our Website Directly
+
 ## Video Tutorials and Lectures
 
 - [LLVM Tutorial](https://llvm.org/docs/tutorial/) – A beginner-friendly tutorial for LLVM development

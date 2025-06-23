@@ -872,6 +872,40 @@ form.menu-search-form input {
     z-index: 1005;
 }
 
+#path-wrapper {
+    height: 100%;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: fixed;
+    width: 0;
+    z-index: 1000;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    top: 0;
+}
+
+#path-wrapper.position-right {
+    right: 0;
+    left: unset;
+}
+
+.canvas-opened #path-wrapper {
+    width: 100%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.header-3.canvas-opened #path-wrapper,
+.header-3 #search-wrapper.position-right {
+    z-index: 1005;
+}
+
+
 .canvas-opened .off-canvas-toggle span,
 .close-sidebar span {
     background: none;

@@ -12,8 +12,8 @@ html {
     border: 1px solid black;
     vertical-align: middle;
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center;     /* 垂直居中 */
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
     transition: all 0.5s;
@@ -39,7 +39,7 @@ html {
 }
 
 .badge-core {
-    background-color: lightgrey; /* 你可以换成你喜欢的颜色 */
+    background-color: lightgrey;
 }
 
 .badge-ccf {

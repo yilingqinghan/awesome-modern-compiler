@@ -158,6 +158,7 @@
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
+                    <div id="xmind-container"></div>
                 </article>
                 <article class="second-child" id="menu2">
                     <h2 class="post-title">
@@ -429,6 +430,18 @@
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
+                    <div class="entry-main-content">
+                        <div>
+                            <p>要紧跟编译器研究的最新动向，请关注顶级会议（如 CGO、PLDI、ASPLOS）的官网及社交渠道，订阅领先期刊（如 TSE、TOPLAS）的提醒，并利用 RSS 订阅、Twitter 科研博主及专业技术博客，以实时追踪最新突破。</p>
+                        </div>
+                        <ol>
+                            <li>多级中间表示与可扩展 IR (MLIR &amp; Extensible IRs)</li>
+                            <li>机器学习驱动的编译优化 (ML-Guided Compiler Optimizations)</li>
+                            <li>WebAssembly 与异构目标的即时编译 (WASM &amp; JIT for Heterogeneous Targets)</li>
+                            <li>异构与加速器感知编译 (Heterogeneous &amp; Accelerator-Aware Compilation)</li>
+                            <li>安全可验证的编译 (Secure &amp; Verifiable Compilation)</li>
+                        </ol>
+                    </div>
                 </article>
                 <article class="second-child" id="menu13">
                     <h2 class="post-title">
@@ -668,7 +681,6 @@
     let matchElements = [];
     let currentIndex = 0;
 
-    // 清除所有高亮
     function resetHighlights() {
         matchElements.forEach(el => {
             el.style.backgroundColor = '';
@@ -676,12 +688,10 @@
         });
     }
 
-    // 执行一次新查找
     function searchAndHighlight() {
         const input = document.querySelector('.search_field');
         const keyword = input.value.trim().toLowerCase();
         const resultSpan = document.getElementById('search_result');
-        // 重置
         resetHighlights();
         matchElements = [];
         currentIndex = 0;
@@ -691,7 +701,6 @@
             return;
         }
 
-        // 按需选定要搜索的元素类型
         const elements = document.querySelectorAll('h1, h2, h3, p, li, a');
         elements.forEach(el => {
             if (el.textContent.toLowerCase().includes(keyword)) {
@@ -701,14 +710,13 @@
         });
 
         if (matchElements.length) {
-            resultSpan.textContent = `Matched ${matchElements.length} item(s)`;
+            resultSpan.textContent = `${matchElements.length} item(s)`;
             scrollToMatch(0);
         } else {
-            resultSpan.textContent = 'No match found';
+            resultSpan.textContent = 'NoT found';
         }
     }
 
-    // 跳转到某个匹配项并加边框
     function scrollToMatch(idx) {
         if (!matchElements.length) return;
         const el = matchElements[idx];
@@ -716,7 +724,6 @@
         el.style.outline = '2px solid orange';
     }
 
-    // 上一项
     function prevMatch() {
         if (!matchElements.length) return;
         resetHighlights();
@@ -724,7 +731,6 @@
         scrollToMatch(currentIndex);
     }
 
-    // 下一项
     function nextMatch() {
         if (!matchElements.length) return;
         resetHighlights();
@@ -732,7 +738,6 @@
         scrollToMatch(currentIndex);
     }
 
-    // 输入框内容变化时，清除旧结果
     document.querySelector('.search_field').addEventListener('input', () => {
         resetHighlights();
         matchElements = [];
@@ -740,27 +745,37 @@
         document.getElementById('search_result').textContent = '';
     });
 
-    // 拦截键盘事件
     document.querySelector('.search_field').addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
-            e.preventDefault();       // 阻止表单提交和刷新
-            searchAndHighlight();     // 新搜索
+            e.preventDefault();
+            searchAndHighlight();
         }
         else if (e.key === 'ArrowDown') {
             e.preventDefault();
-            nextMatch();              // 下一个
+            nextMatch();
         }
         else if (e.key === 'ArrowUp') {
             e.preventDefault();
-            prevMatch();              // 上一个
+            prevMatch();
         }
     });
 
-    // 搜索按钮
     document.getElementById('search_button').addEventListener('click', function(e) {
         e.preventDefault();
         searchAndHighlight();
     });
+</script>
+<!-- XMind Embed Container -->
+
+<script src="https://unpkg.com/xmind-embed-viewer/dist/umd/xmind-embed-viewer.js"></script>
+<script>
+    const viewer = new XMindEmbedViewer({
+        el: '#xmind-container', // the container above
+        region: 'cn' // optional: 'cn' for China, default is global
+    });
+    fetch('learning-path.xmind')
+        .then(res => res.arrayBuffer())
+        .then(file => viewer.load(file));
 </script>
 </body>
 </html>
