@@ -30,11 +30,13 @@
 
 - [Alive2](https://github.com/AliveToolkit/alive2) <!--![alive2](https://github.com/AliveToolkit/alive2/raw/master/imgs/alive2.png)-->
 
-- [llvm-flow](https://github.com/kc-ml2/llvm-flow) <!--![alive2](https://github.com/kc-ml2/llvm-flow/raw/main/logo.png)-->
+- [llvm-flow](https://github.com/kc-ml2/llvm-flow) <!--![llvm-flow](https://github.com/kc-ml2/llvm-flow/raw/main/logo.png)-->
 
-- [upx](https://github.com/upx/upx) <!--![alive2](assets/imgs/git/upx.png)-->
+- [upx](https://github.com/upx/upx) <!--![upx](assets/imgs/git/upx.png)-->
 
-- [moonbit](https://github.com/moonbitlang/core) <!--![alive2](https://avatars.githubusercontent.com/u/124848646?s=200&v=4)-->
+- [moonbit](https://github.com/moonbitlang/core) <!--![moonbit](https://avatars.githubusercontent.com/u/124848646?s=200&v=4)-->
+
+- [V8](https://github.com/v8/v8) <!--![v8](https://avatars.githubusercontent.com/u/113781?s=200&v=4)-->
 
 ## 高引用论文与综述
 
