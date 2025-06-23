@@ -42,6 +42,8 @@
 
 - [TinyCC](https://github.com/TinyCC/tinycc) <!--![v8](https://avatars.githubusercontent.com/u/18518793?s=200&v=4)-->
 
+- [Mold](https://github.com/rui314/mold) <!--![v8](https://avatars.githubusercontent.com/u/47400?v=4)-->
+
 ## 高引用论文与综述
 
 - [CGO](http://dl.acm.org/doi/10.5555/977395.977673) – LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation
