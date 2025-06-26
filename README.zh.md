@@ -3,6 +3,9 @@
 ## 课程与专业知识
 
 - [LLVM Tutorial](https://llvm.org/docs/tutorial/) – LLVM简易开发教程
+- [Stanford-CS143-Compilers](https://web.stanford.edu/class/cs143/) - COOL语言的编译器，最终编译为MIPS汇编，在模拟器上运行，使用龙书作为教材。
+- [推荐·北京大学编译原理实践](https://pku-minic.github.io/online-doc/#/) - SysY 编译到 RISC-V 编译器，使用类LLVM IR——Koopa IR，开源教程及其配套工具、实验环境。
+- [推荐·中科大: Principles and Techniques of Compiler](https://ustc-compiler-principles.github.io/2023/) - 6个实验分别涵盖完整编译器，后端代码实现龙芯汇编。
 
 ## 动手实践
 
@@ -16,23 +19,12 @@
 
 ## 开源Git仓库
 
+### 编译器
+
 - [LLVM](https://github.com/llvm/llvm-project) <!--![llvm](https://llvm.org/img/LLVMWyvernSmall.png)-->
-
 - [GCC](https://gcc.gnu.org/) <!--![gcc](https://upload.wikimedia.org/wikipedia/commons/a/af/GNU_Compiler_Collection_logo.svg)-->
-
 - [CompCert](https://github.com/AbsInt/CompCert) <!--![compcert](https://compcert.org/acm-award-2.png)-->
-
-- [CIRCT](https://github.com/llvm/circt) <!--![circt](https://circt.llvm.org/includes/img/circt-logo.svg)-->
-
 - [GraalVM](https://github.com/oracle/graal) <!--![graal](https://github.com/oracle/graal/raw/master/.github/assets/logo_320x64.svg)-->
-
-- [TVM](https://github.com/apache/tvm) <!--![tvm](https://raw.githubusercontent.com/apache/tvm-site/main/images/logo/tvm-logo-small.png)-->
-
-- [Alive2](https://github.com/AliveToolkit/alive2) <!--![alive2](https://github.com/AliveToolkit/alive2/raw/master/imgs/alive2.png)-->
-
-- [llvm-flow](https://github.com/kc-ml2/llvm-flow) <!--![llvm-flow](https://github.com/kc-ml2/llvm-flow/raw/main/logo.png)-->
-
-- [upx](https://github.com/upx/upx) <!--![upx](assets/imgs/git/upx.png)-->
 
 - [moonbit](https://github.com/moonbitlang/core) <!--![moonbit](https://avatars.githubusercontent.com/u/124848646?s=200&v=4)-->
 
@@ -42,7 +34,24 @@
 
 - [TinyCC](https://github.com/TinyCC/tinycc) <!--![v8](https://avatars.githubusercontent.com/u/18518793?s=200&v=4)-->
 
+### AI编译框架
+
+- [TVM](https://github.com/apache/tvm) <!--![tvm](https://raw.githubusercontent.com/apache/tvm-site/main/images/logo/tvm-logo-small.png)-->
+
+- [CIRCT](https://github.com/llvm/circt) <!--![circt](https://circt.llvm.org/includes/img/circt-logo.svg)-->
+
+
+### 工具
+
 - [Mold](https://github.com/rui314/mold) <!--![v8](https://avatars.githubusercontent.com/u/47400?v=4)-->
+
+- [Alive2](https://github.com/AliveToolkit/alive2) <!--![alive2](https://github.com/AliveToolkit/alive2/raw/master/imgs/alive2.png)-->
+
+- [llvm-flow](https://github.com/kc-ml2/llvm-flow) <!--![llvm-flow](https://github.com/kc-ml2/llvm-flow/raw/main/logo.png)-->
+
+- [upx](https://github.com/upx/upx) <!--![upx](assets/imgs/git/upx.png)-->
+
+### 编程语言
 
 ## 高引用论文与综述
 
@@ -63,8 +72,6 @@
 ## 术语表
 
 - [AOT](https://en.wikipedia.org/wiki/Ahead-of-time_compilation)
-
-## 前沿趋势
 
 ## 视频教程与讲座
 
@@ -104,3 +111,10 @@
 - [ASE](https://link.springer.com/journal/10515) `JCI 0.81` `JCR Q2` `CCF B`
 
 ### 研讨会
+
+## 推荐资源
+
+- [学术论文优秀图片画廊](https://yilingqinghan.github.io/paper-chart-gallery/)
+- [AI for Compiler领域论文](https://yilingqinghan.github.io/AI4Compiler-Collection/)
+
+## 新闻

@@ -1,230 +1,340 @@
+#!/usr/bin/env python3
+# coding: utf-8
+
 import re
-import argparse
+from pathlib import Path
+import sys
+import csv
 
-def revert_injects(html: str) -> str:
+CONFIG_FILE = 'rules.tsv'
+LANG_FILES = {
+    'zh': {'md': 'README.zh.md', 'html_in': 'index.zh.html', 'html_out': 'index.zh.html'},
+    'en': {'md': 'README.md',   'html_in': 'index.html',   'html_out': 'index.html'},
+}
+
+def load_rules(config_file: str, lang: str):
+    rules = []
+    with open(config_file, encoding='utf-8') as f:
+        reader = csv.DictReader(f, delimiter='\t')
+        for row in reader:
+            if row.get('lang') != lang:
+                continue
+            heading = row.get('heading_regex')
+            parser_name = row.get('parser')
+            slot_id = row.get('slot_id')
+            if not heading or not parser_name or not slot_id:
+                continue
+            pattern = re.compile(heading, re.MULTILINE)
+            parser = globals().get(parser_name)
+            if not callable(parser):
+                continue
+            rules.append(MenuRule(pattern, parser, slot_id))
+    return rules
+
+# Colored logging
+def log_info(msg):
+    print(f"\033[32m[INFO]\033[0m {msg}")
+def log_debug(msg):
+    print(f"\033[36m[DEBUG]\033[0m {msg}")
+def log_error(msg):
+    print(f"\033[31m[ERROR]\033[0m {msg}")
+
+from typing import List, Dict, Pattern, Callable, Any
+from dataclasses import dataclass
+
+@dataclass
+class MenuRule:
+    heading_regex: Pattern      # regex to match the Markdown heading line
+    parser: Callable[[str], Any]  # function to parse that section
+    slot_id: str                  # HTML slot identifier (data-menu or comment marker)
+
+def parse_simple_items(section: str) -> List[Dict[str, str]]:
     """
-    Remove everything between each
-      <!-- inject-menuN -->  and  <!-- inject-menuN-end -->
-    markers (for any N), leaving the markers themselves in place.
+    Parse lines like:
+      - [LLVM Tutorial](https://llvm.org/docs/tutorial/) – LLVM Tutorial
+    Returns a list of dicts with keys: title, href, desc.
+    """
+    pattern = re.compile(r'- \[([^]]+)\]\(([^)]+)\)\s*[–-]\s*(.+)')
+    items = []
+    for line in section.splitlines():
+        m = pattern.match(line.strip())
+        if m:
+            items.append({
+                "title": m.group(1).strip(),
+                "href": m.group(2).strip(),
+                "desc":  m.group(3).strip()
+            })
+    return items
+
+def parse_repo_items(section: str) -> List[Dict[str, str]]:
+    """
+    Parse lines like:
+      - [LLVM](https://github.com/llvm/llvm-project) <!--![llvm](https://...)-->
+    Returns list of dicts with keys: name, href, img (optional).
     """
     pattern = re.compile(
-        r'<!--\s*inject-menu(?P<id>\d+)\s*-->.*?<!--\s*inject-menu(?P=id)-end\s*-->',
-        flags=re.DOTALL
+        r'- \[([^]]+)\]\(([^)]+)\)'
+        r'(?:\s*<!--!\[[^\]]*\]\(([^)]+)\)-->)?'
     )
-    # Replace each match with just the start and end markers
-    return pattern.sub(lambda m: f'<!-- inject-menu{m.group("id")} -->\n<!-- inject-menu{m.group("id")}-end -->', html)
-
-
-def parse_md_sections(md_text):
-    heads = [(m.start(), m.end(), len(m.group(1)))
-             for m in re.finditer(r'^(##+)\s+.+', md_text, flags=re.MULTILINE)]
-    sections = []
-    for i, (_, end, _) in enumerate(heads):
-        start = end
-        finish = heads[i+1][0] if i+1 < len(heads) else len(md_text)
-        sections.append(md_text[start:finish])
-#     for i,j in enumerate(sections):
-#         print(i,j)
-    return sections
-
-def parse_section_items(section_text):
     items = []
-    for line in section_text.splitlines():
-        line = line.strip()
-        m = re.match(r'- \[([^\]]+)\]\(([^)]+)\) – (.+)', line)
+    for line in section.splitlines():
+        m = pattern.match(line.strip())
         if m:
-            title, href, desc = m.groups()
-            items.append({'title': title, 'href': href, 'desc': desc})
+            items.append({
+                "name": m.group(1).strip(),
+                "href": m.group(2).strip(),
+                "img":  m.group(3).strip() if m.group(3) else ""
+            })
     return items
 
-def parse_menu4_items(section_text: str) -> list:
+def parse_conference_items(section: str) -> List[Dict[str, str]]:
+    """
+    Parse lines like:
+      - [CGO](https://.../cgo) `CORE A` `CCF B`
+    Returns list of dicts with keys: name, href, tags (list).
+    """
+    item_pattern = re.compile(r'- \[([^]]+)\]\(([^)]+)\)')
+    tag_pattern  = re.compile(r'`([^`]+)`')
     items = []
-    for line in section_text.splitlines():
-        line = line.strip()
-        m = re.match(r'- \[([^\]]+)\]\(([^)]+)\)\s*–\s*(.+)', line)
+    for line in section.splitlines():
+        li = line.strip()
+        m = item_pattern.match(li)
         if m:
-            name, href, tags_str = m.groups()
-            tags = [t.strip() for t in tags_str.split(',')]
-            items.append({'name': name, 'href': href, 'tags': tags})
+            tags = tag_pattern.findall(li[m.end():])
+            items.append({
+                "name": m.group(1).strip(),
+                "href": m.group(2).strip(),
+                "tags": tags
+            })
     return items
 
-def parse_menu5_items(section_text: str) -> list:
+def parse_glossary_items(section: str) -> List[Dict[str, str]]:
+    """
+    Parse lines like:
+      - [AOT](https://en.wikipedia.org/wiki/Ahead-of-time_compilation)
+    Returns a list of dicts with keys: name, href.
+    """
+    pattern = re.compile(r'- \[([^]]+)\]\(([^)]+)\)')
     items = []
+    for line in section.splitlines():
+        m = pattern.match(line.strip())
+        if m:
+            items.append({
+                "name": m.group(1).strip(),
+                "href": m.group(2).strip()
+            })
+    return items
+
+class Node:
+    def __init__(self, level: int, text: str):
+        self.level = level
+        self.text  = text.strip()
+        self.children = []
+        self.id = ""
+
+def parse_markdown(md: str):
+    pat = re.compile(r"^(#{2,4})\s+(.+)$", re.MULTILINE)
+    roots, stack = [], []
+    for m in pat.finditer(md):
+        level = len(m.group(1))
+        node  = Node(level, m.group(2))
+        while stack and stack[-1].level >= level:
+            stack.pop()
+        if not stack:
+            roots.append(node)
+        else:
+            stack[-1].children.append(node)
+        stack.append(node)
+    return roots
+
+def gen_ids(node_list):
+    """Assign menuX / menuXsubY … IDs to all nodes"""
+    for i, root in enumerate(node_list, 1):
+        root.id = f"menu{i}"
+        for j, sub in enumerate(root.children, 1):
+            sub.id = f"{root.id}sub{j}"
+            for k, sub2 in enumerate(sub.children, 1):
+                sub2.id = f"{sub.id}sub{k}"
+
+def render_html(nodes):
+    html = []
+    for n in nodes:
+        if not n.children:
+            html.append(f'<a class="list-group-item" href="#{n.id}">{n.text}</a>')
+        else:
+            html.append(
+                f'<a class="list-group-item collapsed" data-toggle="collapse" '
+                f'data-parent="#sidebar" aria-expanded="false" href="#{n.id}">'
+                f'{n.text}</a>')
+            html.append(f'<div class="collapse" id="{n.id}">')
+            html.extend(render_html(n.children))
+            html.append('</div>')
+    return html
+
+def revert_injects(html_src: str) -> str:
+    """
+    Remove only the content between <!-- inject-xxx --> and <!-- inject-xxx-end --> markers,
+    preserving the markers themselves.
+    """
     pattern = re.compile(
-        r'- \[([^\]]+)\]\(([^)]+)\)\s*<!--\s*!\[[^\]]*\]\(([^)]+)\)\s*-->'
-    )
-    for line in section_text.splitlines():
-        line = line.strip()
-        m = pattern.match(line)
-        if m:
-            name, href, img = m.groups()
-            items.append({'name': name, 'href': href, 'img': img})
-    return items
+        r'([ \t]*<!--\s*inject-[\w-]+\s*-->)[\s\S]*?([ \t]*<!--\s*inject-[\w-]+?-end\s*-->)',
+        re.DOTALL)
+    return pattern.sub(r'\1\n\2', html_src)
 
-def parse_menu13_items(section_text: str) -> list:
-    items = []
-    for line in section_text.splitlines():
-        line = line.strip()
-        m = re.match(r'- \[([^\]]+)\]\(([^)]+)\)', line)
-        if m:
-            name, href = m.groups()
-            items.append({'name': name, 'href': href})
-    return items
+def inject_slot(html_src: str, slot_id: str, fragment: str) -> str:
+    """
+    Replace the HTML slot identified by slot_id with fragment.
+    Supports:
+      - <ul data-menu="slot_id"> ... </ul>
+      - <!-- inject-slot_id --> ... <!-- inject-slot_id-end -->
+    """
+    # Try comment markers first
+    comment_pattern = re.compile(
+        rf'<!--\s*inject-{re.escape(slot_id)}\s*-->.*?<!--\s*inject-{re.escape(slot_id)}-end\s*-->',
+        re.DOTALL)
+    comment_replacement = f'<!-- inject-{slot_id} -->\n{fragment}\n<!-- inject-{slot_id}-end -->'
+    html_src, n = comment_pattern.subn(comment_replacement, html_src)
+    if n > 0:
+        return html_src
+    # Try <ul data-menu="slot_id"> ... </ul>
+    ul_pattern = re.compile(
+        rf'(<ul[^>]*data-menu\s*=\s*["\']{re.escape(slot_id)}["\'][^>]*>)(.*?)(</ul>)',
+        re.DOTALL)
+    def ul_repl(m):
+        return f"{m.group(1)}\n{fragment}\n{m.group(3)}"
+    html_src, n = ul_pattern.subn(ul_repl, html_src)
+    if n > 0:
+        return html_src
+    # If neither found, just return unchanged (or raise if strict)
+    # raise RuntimeError(f"Cannot find slot {slot_id} in template.")
+    return html_src
 
-def parse_menu14_items(section_text: str) -> list:
-    items = []
-    pattern = re.compile(
-        r'- \[([^\]]+)\]\(([^)]+)\)\s*((?:`[^`]+`\s*)+)'
-    )
-    for line in section_text.splitlines():
-        line = line.strip()
-        m = pattern.match(line)
-        if m:
-            name, href, tags_part = m.groups()
-            tags = re.findall(r'`([^`]+)`', tags_part)
-            items.append({'name': name, 'href': href, 'tags': tags})
-    return items
+def extract_section(md_text: str, heading_regex: Pattern) -> str:
+    """
+    Given the full Markdown text and a heading regex, extract the section
+    from the heading line until the next heading of same or higher level.
+    """
+    matches = list(heading_regex.finditer(md_text))
+    if not matches:
+        return ""
+    m = matches[0]
+    start = m.start()
+    # Determine heading level by number of #s
+    heading_line = m.group(0)
+    level = len(re.match(r'^(#+)', heading_line).group(1))
+    # Find the next heading of same or higher level
+    next_heading = re.compile(rf'^#{{1,{level}}}\s+', re.MULTILINE)
+    next_m = next_heading.search(md_text, pos=m.end())
+    end = next_m.start() if next_m else len(md_text)
+    return md_text[m.end():end].strip()
 
-def inject_menu_generic(html: str, items: list, marker_id: int) -> str:
-    marker = f'<!-- inject-menu{marker_id} -->'
-    injection = ''.join(
-        f'\n<li>'
-          f'<span class="tagcloud mt-50 widget_tagcloud">'
-            f'<a class="tag-cloud-link" href="{it["href"]}">{it["title"]}</a>'
-          f'</span>'
-          f'{it["desc"]}'
-        f'</li>'
-        for it in items
-    )
-    return html.replace(marker, marker + injection)
-
-def inject_menu4(html: str, items: list) -> str:
-    left = [
-        '<div class="col-md-3">',
-        '  <div class="entry-main-content">',
-        '    <ul>',
-    ]
-    for it in items:
-        left.append(f'      <li><a href="{it["href"]}">{it["name"]}</a></li>')
-    left += [
-        '    </ul>',
-        '  </div>',
-        '</div>',
-    ]
-
-    right = [
-        '<div class="col-md-9">',
-        '  <ul>',
-    ]
-    for it in items:
-        links = ''.join(
-            f'<a class="tag-cloud-link" href="">{tag}</a>'
-            for tag in it['tags']
+def render_link_ul(items):
+    lines = []
+    for item in items:
+        lines.append(
+            f'<li>'
+            f'<a href="{item["href"]}">{item["name"]}</a>'
+            f'</li>'
         )
-        right += [
-            '    <li>',
-            f'      <span class="tagcloud mt-50 widget_tagcloud">{links}</span>',
-            '    </li>',
-        ]
-    right += [
-        '  </ul>',
-        '</div>',
-    ]
+    return "\n".join(lines) if lines else ""
 
-    injection = '\n' + '\n'.join(left + right)
-    return html.replace('<!-- inject-menu4 -->',
-                        '<!-- inject-menu4 -->' + injection)
+def render_simple_ul(items):
+    lines = []
+    for item in items:
+        lines.append(
+            f'<li>'
+            f'<span class="tagcloud mt-50 widget_tagcloud">'
+            f'<a class="tag-cloud-link" href="{item["href"]}">{item["title"]}</a>'
+            f'</span>{item["desc"]}'
+            f'</li>'
+        )
+    return "<ul class=\"tagcloud-list\">\n" + "\n".join(lines) + "\n</ul>" if lines else ""
 
-def inject_menu5(html: str, items: list) -> str:
-    blocks = []
+def render_repo_grid(items):
+    html = []
+    # wrap every 6 items in a .row
     for i in range(0, len(items), 6):
-        row = ['<div class="row">']
-        for it in items[i:i+6]:
-            block = f'''    <div class="col-md-2">
-        <a class="block-github" href="{it['href']}" target="_blank">
-            <img src="{it['img']}"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>{it['name']}</b></mark></p>
-        </div>
-    </div>'''
-            row.append(block)
-        row.append('</div>')
-        blocks.append('\n'.join(row))
-    injection = '\n' + '\n'.join(blocks)
-    return html.replace('<!-- inject-menu5 -->', '<!-- inject-menu5 -->' + injection)
+        chunk = items[i:i+6]
+        html.append('<div class="row">')
+        for item in chunk:
+            html.append(
+                '    <div class="col-md-2">'
+                f'        <a class="block-github" href="{item["href"]}" target="_blank">'
+                f'            <img src="{item["img"]}"/>'
+                '        </a>'
+                '        <div class="block-github-text">'
+                f'            <p><mark><b>{item["name"]}</b></mark></p>'
+                '        </div>'
+                '    </div>'
+            )
+        html.append('</div>')
+    return "\n".join(html) if html else ""
 
-def inject_menu13(html: str, items: list) -> str:
-    links = ''.join(
-        f'<a class="tag-cloud-link" href="{it["href"]}">{it["name"]}</a>'
-        for it in items
-    )
-    injection = '\n' + links
-    return html.replace('<!-- inject-menu13 -->', '<!-- inject-menu13 -->' + injection)
-
-def inject_menu14(html: str, items: list) -> str:
+def render_confs_ul(items):
     lines = []
-    for it in items:
-        spans = ''.join(f'<span class="badge badge-core">{tag}</span>' for tag in it['tags'])
-        lines.append(f'<li><a href="{it["href"]}">{it["name"]}</a>{spans}</li>')
-    injection = '\n' + '\n'.join(lines)
-    return html.replace('<!-- inject-menu14 -->', '<!-- inject-menu14 -->' + injection)
+    for item in items:
+        badges = "".join(
+            f'<span class="badge badge-core">{tag}</span>'
+            for tag in item.get("tags", [])
+        )
+        lines.append(
+            f'<li>'
+            f'<a href="{item["href"]}">{item["name"]}</a>'
+            f'{badges}'
+            f'</li>'
+        )
+    return "<ul class=\"conference-list\">\n" + "\n".join(lines) + "\n</ul>" if lines else ""
 
-def inject_menu15(html: str, items: list) -> str:
-    lines = []
-    for it in items:
-        spans = ''.join(f'<span class="badge badge-core">{tag}</span>' for tag in it['tags'])
-        lines.append(f'<li><a href="{it["href"]}">{it["name"]}</a>{spans}</li>')
-    injection = '\n' + '\n'.join(lines)
-    return html.replace('<!-- inject-menu15 -->', '<!-- inject-menu15 -->' + injection)
+def choose_renderer(rule: MenuRule) -> Callable[[Any], str]:
+    # Pick a renderer based on the parser function
+    if rule.parser is parse_simple_items:
+        return render_simple_ul
+    if rule.parser is parse_repo_items:
+        return render_repo_grid
+    if rule.parser is parse_conference_items:
+        return render_confs_ul
+    if rule.parser is parse_glossary_items:
+        return render_link_ul
+    # fallback
+    return lambda items: ""
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--revert', action='store_true')
-    args = parser.parse_args()
+    args = sys.argv[1:]
+    log_info("Starting inject-new.py for all languages")
+    do_revert = "--revert" in args
 
-    targets = [
-        ("README.md", "index.html"),
-        ("README.zh.md", "index.zh.html"),
-    ]
+    if do_revert:
+        for lang, files in LANG_FILES.items():
+            html_src = Path(files['html_in']).read_text(encoding="utf-8")
+            new_html = revert_injects(html_src)
+            Path(files['html_out']).write_text(new_html, encoding="utf-8")
+            log_info(f"Reverted injected blocks in {lang}")
+        return
 
-    for md_path, html_path in targets:
-        md = open(md_path, encoding='utf-8').read()
-        html = open(html_path, encoding='utf-8').read()
+    for lang, files in LANG_FILES.items():
+        log_info(f"Processing language: {lang}")
+        rules = load_rules(CONFIG_FILE, lang)
+        md_text = Path(files['md']).read_text(encoding="utf-8")
+        html_src = Path(files['html_in']).read_text(encoding="utf-8")
+        for rule in rules:
+            if rule.parser is None:
+                continue
+            log_debug(f"Processing slot: {rule.slot_id} for {lang}")
+            section_text = extract_section(md_text, rule.heading_regex)
+            if not section_text:
+                continue
+            items = rule.parser(section_text)
+            log_debug(f"Found {len(items)} items for slot {rule.slot_id} in {lang}")
+            renderer = choose_renderer(rule)
+            fragment = renderer(items)
+            html_src = inject_slot(html_src, rule.slot_id, fragment)
+        # build and inject TOC
+        roots = parse_markdown(md_text)
+        gen_ids(roots)
+        toc_html = "\n".join(render_html(roots))
+        html_src = inject_slot(html_src, "index", toc_html)
+        Path(files['html_out']).write_text(html_src, encoding="utf-8")
+        log_info(f"Injection complete for {lang}, output written to {files['html_out']}")
 
-        if args.revert:
-            html = revert_injects(html)
-        else:
-            sections = parse_md_sections(md)
-            menu2_items  = parse_section_items(sections[1]) if len(sections) > 1 else []
-            menu3_items  = parse_section_items(sections[2]) if len(sections) > 2 else []
-            menu6_items  = parse_section_items(sections[5]) if len(sections) > 5 else []
-            menu7_items  = parse_section_items(sections[6]) if len(sections) > 6 else []
-            menu8_items  = parse_section_items(sections[7]) if len(sections) > 7 else []
-            menu9_items = parse_section_items(sections[8]) if len(sections) > 8 else []
-            menu12_items = parse_section_items(sections[11]) if len(sections) > 11 else []
-            menu14_items = parse_menu14_items(sections[13]) if len(sections) > 13 else []
-            menu15_items = parse_menu14_items(sections[14]) if len(sections) > 14 else []
-            menu4_items  = parse_menu4_items(sections[3]) if len(sections) > 3 else []
-            menu5_items  = parse_menu5_items(sections[4]) if len(sections) > 4 else []
-            menu13_items = parse_menu13_items(sections[12]) if len(sections) > 12 else []
-
-            html = inject_menu_generic(html, menu2_items, 2)
-            html = inject_menu_generic(html, menu3_items, 3)
-            html = inject_menu_generic(html, menu6_items, 6)
-            html = inject_menu_generic(html, menu7_items, 7)
-            html = inject_menu_generic(html, menu8_items, 8)
-            html = inject_menu_generic(html, menu9_items, 9)
-            html = inject_menu_generic(html, menu12_items, 12)
-            html = inject_menu4(html, menu4_items)
-            html = inject_menu5(html, menu5_items)
-            html = inject_menu13(html, menu13_items)
-            html = inject_menu14(html, menu14_items)
-            html = inject_menu15(html, menu15_items)
-
-        with open(html_path, 'w', encoding='utf-8') as f:
-            f.write(html)
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

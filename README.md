@@ -20,6 +20,9 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 ## Courses and Foundational Knowledge
 
 - [LLVM Tutorial](https://llvm.org/docs/tutorial/) – A beginner-friendly tutorial for LLVM development
+- [Stanford-CS143-Compilers](https://web.stanford.edu/class/cs143/) - A compiler for the COOL language that generates MIPS assembly and runs on a simulator, using <b>Compilers: Principles, Techniques, and Tools</b> as the textbook.
+- [Peking University: Compiler Principles Practice](https://pku-minic.github.io/online-doc/#/) – A SysY-to-RISC-V compiler built on Koopa IR (an LLVM-like IR), accompanied by an open-source tutorial, toolchain, and experimental environment.
+- [USTC: Principles and Techniques of Compiler](https://ustc-compiler-principles.github.io/2023/) – Six hands-on labs covering a full compiler pipeline, with backend code generating Loongson assembly.
 
 ## Hands-on Practice
 
@@ -33,23 +36,12 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 
 ## Open Source Git Repositories
 
+### Compilers
+
 - [LLVM](https://github.com/llvm/llvm-project) <!--![llvm](https://llvm.org/img/LLVMWyvernSmall.png)-->
-
 - [GCC](https://gcc.gnu.org/) <!--![gcc](https://upload.wikimedia.org/wikipedia/commons/a/af/GNU_Compiler_Collection_logo.svg)-->
-
 - [CompCert](https://github.com/AbsInt/CompCert) <!--![compcert](https://compcert.org/acm-award-2.png)-->
-
-- [CIRCT](https://github.com/llvm/circt) <!--![circt](https://circt.llvm.org/includes/img/circt-logo.svg)-->
-
 - [GraalVM](https://github.com/oracle/graal) <!--![graal](https://github.com/oracle/graal/raw/master/.github/assets/logo_320x64.svg)-->
-
-- [TVM](https://github.com/apache/tvm) <!--![tvm](https://raw.githubusercontent.com/apache/tvm-site/main/images/logo/tvm-logo-small.png)-->
-
-- [Alive2](https://github.com/AliveToolkit/alive2) <!--![alive2](https://github.com/AliveToolkit/alive2/raw/master/imgs/alive2.png)-->
-
-- [llvm-flow](https://github.com/kc-ml2/llvm-flow) <!--![llvm-flow](https://github.com/kc-ml2/llvm-flow/raw/main/logo.png)-->
-
-- [upx](https://github.com/upx/upx) <!--![upx](assets/imgs/git/upx.png)-->
 
 - [moonbit](https://github.com/moonbitlang/core) <!--![moonbit](https://avatars.githubusercontent.com/u/124848646?s=200&v=4)-->
 
@@ -59,7 +51,21 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 
 - [TinyCC](https://github.com/TinyCC/tinycc) <!--![v8](https://avatars.githubusercontent.com/u/18518793?s=200&v=4)-->
 
+### AI Compilation Frameworks
+
+- [TVM](https://github.com/apache/tvm) <!--![tvm](https://raw.githubusercontent.com/apache/tvm-site/main/images/logo/tvm-logo-small.png)-->
+
+- [CIRCT](https://github.com/llvm/circt) <!--![circt](https://circt.llvm.org/includes/img/circt-logo.svg)-->
+
+### Tools
+
 - [Mold](https://github.com/rui314/mold) <!--![v8](https://avatars.githubusercontent.com/u/47400?v=4)-->
+
+- [Alive2](https://github.com/AliveToolkit/alive2) <!--![alive2](https://github.com/AliveToolkit/alive2/raw/master/imgs/alive2.png)-->
+
+- [llvm-flow](https://github.com/kc-ml2/llvm-flow) <!--![llvm-flow](https://github.com/kc-ml2/llvm-flow/raw/main/logo.png)-->
+
+- [upx](https://github.com/upx/upx) <!--![upx](assets/imgs/git/upx.png)-->
 
 ## Influential Papers and Surveys
 
@@ -123,3 +129,10 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 - [ASE](https://link.springer.com/journal/10515) `JCI 0.81` `JCR Q2` `CCF B`
 
 ### Workshops
+
+## Recommended Resources
+
+- [Gallery of Outstanding Images from Academic Papers](https://yilingqinghan.github.io/paper-chart-gallery/)
+- [Paper Collection in the AI-for-Compiler Domain](https://yilingqinghan.github.io/AI4Compiler-Collection/)
+
+## News

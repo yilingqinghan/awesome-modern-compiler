@@ -1,0 +1,43 @@
+lang	heading_regex	parser	slot_id
+zh	^##\s+课程与专业知识	parse_simple_items	courses
+zh	^##\s+动手实践	parse_simple_items	hands-on
+zh	^##\s+知名学者及团队	parse_simple_items	scholars
+zh	^###\s+开源Git仓库
+zh	^###\s+编译器	parse_repo_items	repos-compilers
+zh	^###\s+AI编译框架	parse_repo_items	repos-ai
+zh	^###\s+工具	parse_repo_items	repos-tools
+zh	^###\s+编程语言	parse_repo_items	repos-langs
+zh	^##\s+高引用论文与综述	parse_simple_items	papers
+zh	^##\s+在线交互工具	parse_simple_items	online-tools
+zh	^##\s+性能分析与调试	parse_simple_items	profiles
+zh	^##\s+社区与讨论	parse_simple_items	communities
+zh	^##\s+术语表	parse_glossary_items	glossaries
+zh	^##\s+视频教程与讲座	parse_simple_items	multimedia
+zh	^###\s+会议、期刊、研讨会
+zh	^###\s+会议	parse_conference_items	confs
+zh	^###\s+期刊	parse_conference_items	journals
+zh	^###\s+研讨会	parse_conference_items	workshops
+zh	^##\s+推荐资源	parse_glossary_items	recommend
+zh	^##\s+新闻	parse_glossary_items	news
+
+en	^##\s+Courses and Foundational Knowledge	parse_simple_items	courses
+en	^##\s+Hands-on Practice	parse_simple_items	hands-on
+en	^##\s+Renowned Researchers and Teams	parse_simple_items	scholars
+en	^##\s+Renowned Researchers and Teams	parse_simple_items	scholars
+en	^##\s+Open Source Git Repositories
+en	^###\s+Compilers	parse_repo_items	repos-compilers
+en	^###\s+AI Compilation Frameworks	parse_repo_items	repos-ai
+en	^###\s+Tools	parse_repo_items	repos-tools
+en	^###\s+Programming Languages	parse_repo_items	repos-langs
+en	^##\s+Influential Papers and Surveys	parse_simple_items	papers
+en	^##\s+Online Interactive Tools	parse_simple_items	online-tools
+en	^##\s+Performance Analysis and Debugging	parse_simple_items	profiles
+en	^##\s+Community and Discussions	parse_simple_items	communities
+en	^##\s+Glossary	parse_glossary_items	glossaries
+en	^##\s+Video Tutorials and Lectures	parse_simple_items	multimedia
+en	^##\s+Conferences, Journals, and Workshops
+en	^###\s+Conferences	parse_conference_items	confs
+en	^###\s+Journals	parse_conference_items	journals
+en	^###\s+Workshops	parse_conference_items	workshops
+en	^##\s+Recommended Resources	parse_glossary_items	recommend
+en	^##\s+News	parse_glossary_items	news

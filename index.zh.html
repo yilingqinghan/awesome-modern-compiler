@@ -8,7 +8,6 @@
     <meta content="" name="description"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <link href="assets/imgs/cg.png" rel="shortcut icon" type="image/x-icon"/>
-    <!-- Template CSS -->
     <link href="assets/css/style.css" rel="stylesheet"/>
     <link href="assets/css/self.css" rel="stylesheet"/>
     <link href="assets/css/widgets.css" rel="stylesheet"/>
@@ -23,8 +22,8 @@
         <div class="preloader-inner position-relative">
             <div class="text-center font-heading">
                 <img alt="" src="assets/imgs/cg.png"/>
-                <h1>CompGalaxy</h1>
-                <h6>Now loading...</h6>
+                <h1>Compiler Galaxy</h1>
+                <h6>正在加载中...</h6>
             </div>
         </div>
     </div>
@@ -56,7 +55,8 @@
                                 <label>
                                     <input class="search_field" name="s" placeholder="回车↵" type="text" value=""/>
                                 </label>
-                                <span id="search_result" style="margin-left: 10px; font-size: 0.9em; color: white;"></span>
+                                <span id="search_result"
+                                      style="margin-left: 10px; font-size: 0.9em; color: white;"></span>
                             </form>
                         </div>
                     </div>
@@ -82,9 +82,11 @@
             <div class="row no-gutters d-none d-lg-flex">
                 <div class="col-lg-4 pl-30">
                     <ul class="header-social-network d-inline-block list-inline">
-                        <li class="list-inline-item"><a class="social-icon facebook-icon text-xs-center" href="https://github.com/yilingqinghan"
+                        <li class="list-inline-item"><a class="social-icon facebook-icon text-xs-center"
+                                                        href="https://github.com/yilingqinghan"
                                                         target="_blank"><i class="ti-github"></i></a></li>
-                        <li class="list-inline-item"><a class="social-icon facebook-icon text-xs-center" href="index.html">English</a></li>
+                        <li class="list-inline-item"><a class="social-icon facebook-icon text-xs-center"
+                                                        href="index.html">English</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 text-center">
@@ -100,7 +102,6 @@
                             </ul>
                         </nav>
                     </div>
-                    <!-- Search -->
                     <div class="search-button d-none d-md-block color-white">
                         <button class="search-icon"><i class="fa fa-search"></i></button>
                     </div>
@@ -124,35 +125,42 @@
             </div>
             <div class="sidebar-widget widget_categories mb-50 font-heading">
                 <div class="list-group panel">
-                    <a class="list-group-item" href="#menu1">学习路径参考</a>
-                    <a class="list-group-item" href="#menu2">课程与专业知识</a>
-                    <a class="list-group-item" href="#menu3">动手实践</a>
-                    <a class="list-group-item" href="#menu4">知名学者及团队</a>
-                    <a class="list-group-item" href="#menu5">开源Git仓库</a><a
-                        class="list-group-item" href="#menu6">高引用论文与综述</a>
-                    <a class="list-group-item" href="#menu7">在线交互工具</a>
-                    <a class="list-group-item" href="#menu8">性能分析与调试</a>
-                    <a aria-expanded="false" class="list-group-item collapsed" data-parent="#sidebar" data-toggle="collapse" href="#menu14">会议、期刊、研讨会</a>
-                    <div class="collapse" id="menu14">
-                        <a class="list-group-item" data-parent="#menu14" href="#menu14sub1">会议</a>
-                        <a class="list-group-item" data-parent="#menu14" href="#menu14sub2">期刊</a>
-                        <a class="list-group-item" data-parent="#menu14" href="#menu14sub3">研讨会</a>
-                    </div>
-                    <a class="list-group-item" href="#menu10">社区与讨论</a>
-                    <a class="list-group-item" href="#menu11">术语表</a>
-                    <a class="list-group-item" href="#menu12">前沿趋势</a>
-                    <a class="list-group-item" href="#menu13">视频教程与讲座</a>
+                    <!-- inject-index -->
+<a class="list-group-item" href="#menu1">学习路径参考</a>
+<a class="list-group-item" href="#menu2">课程与专业知识</a>
+<a class="list-group-item" href="#menu3">动手实践</a>
+<a class="list-group-item" href="#menu4">知名学者及团队</a>
+<a class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false" href="#menu5">开源Git仓库</a>
+<div class="collapse" id="menu5">
+<a class="list-group-item" href="#menu5sub1">编译器</a>
+<a class="list-group-item" href="#menu5sub2">AI编译框架</a>
+<a class="list-group-item" href="#menu5sub3">工具</a>
+<a class="list-group-item" href="#menu5sub4">编程语言</a>
+</div>
+<a class="list-group-item" href="#menu6">高引用论文与综述</a>
+<a class="list-group-item" href="#menu7">在线交互工具</a>
+<a class="list-group-item" href="#menu8">性能分析与调试</a>
+<a class="list-group-item" href="#menu9">社区与讨论</a>
+<a class="list-group-item" href="#menu10">术语表</a>
+<a class="list-group-item" href="#menu11">视频教程与讲座</a>
+<a class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false" href="#menu12">会议、期刊、研讨会</a>
+<div class="collapse" id="menu12">
+<a class="list-group-item" href="#menu12sub1">会议</a>
+<a class="list-group-item" href="#menu12sub2">期刊</a>
+<a class="list-group-item" href="#menu12sub3">研讨会</a>
+</div>
+<a class="list-group-item" href="#menu13">推荐资源</a>
+<a class="list-group-item" href="#menu14">新闻</a>
+<!-- inject-index-end -->
                 </div>
             </div>
-            <!--Categories-->
-            <!--Recent Comment-->
         </div>
         <!--Left sidebar-->
         <div class="col-3-5 main-content pb-50 order-1 order-lg-2">
             <div class="loop-list-1">
                 <article class="second-child" id="menu1">
                     <h2 class="post-title">
-                        <a href="">学习路径参考</a>
+                        <a href="javascript:void(0)">学习路径参考</a>
                     </h2>
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
@@ -161,277 +169,175 @@
                 </article>
                 <article class="second-child" id="menu2">
                     <h2 class="post-title">
-                        <a href="">课程与专业知识</a>
+                        <a href="javascript:void(0)">课程与专业知识</a>
                     </h2>
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
                     <div class="entry-main-content">
-                        <ul>
-                            <!-- inject-menu2 -->
+                        <!-- inject-courses -->
+<ul class="tagcloud-list">
 <li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://llvm.org/docs/tutorial/">LLVM Tutorial</a></span>LLVM简易开发教程</li>
-<!-- inject-menu2-end -->
-                        </ul>
+<li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://web.stanford.edu/class/cs143/">Stanford-CS143-Compilers</a></span>COOL语言的编译器，最终编译为MIPS汇编，在模拟器上运行，使用龙书作为教材。</li>
+<li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://pku-minic.github.io/online-doc/#/">推荐·北京大学编译原理实践</a></span>SysY 编译到 RISC-V 编译器，使用类LLVM IR——Koopa IR，开源教程及其配套工具、实验环境。</li>
+<li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://ustc-compiler-principles.github.io/2023/">推荐·中科大: Principles and Techniques of Compiler</a></span>6个实验分别涵盖完整编译器，后端代码实现龙芯汇编。</li>
+</ul>
+<!-- inject-courses-end -->
                     </div>
                 </article>
                 <article class="second-child" id="menu3">
                     <h2 class="post-title">
-                        <a href="">动手实践</a>
+                        <a href="javascript:void(0)">动手实践</a>
                     </h2>
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
                     <div class="entry-main-content">
-                        <ul>
-                            <!-- inject-menu3 -->
+                        <!-- inject-hands-on -->
+<ul class="tagcloud-list">
 <li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://llvm.org/docs/tutorial/">LLVM Tutorial</a></span>LLVM简易开发教程</li>
-<!-- inject-menu3-end -->
-                        </ul>
+</ul>
+<!-- inject-hands-on-end -->
                     </div>
                 </article>
                 <article class="second-child" id="menu4">
                     <h2 class="post-title">
-                        <a href="">知名学者及团队</a>
+                        <a href="javascript:void(0)">知名学者及团队</a>
                     </h2>
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
                     <div class="row">
-                        <!-- inject-menu4 -->
-<div class="col-md-3">
-  <div class="entry-main-content">
-    <ul>
-      <li><a href="https://github.com/xavierleroy">Xavier Leroy</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Chris_Lattner">Chris Lattner</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Michael_O%27Boyle">Michael O’Boyle</a></li>
-    </ul>
-  </div>
-</div>
-<div class="col-md-9">
-  <ul>
-    <li>
-      <span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="">Coq</a><a class="tag-cloud-link" href="">OCaml</a><a class="tag-cloud-link" href="">CompCert</a></span>
-    </li>
-    <li>
-      <span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="">LLVM</a><a class="tag-cloud-link" href="">Swift</a><a class="tag-cloud-link" href="">MLIR</a><a class="tag-cloud-link" href="">CRICT</a><a class="tag-cloud-link" href="">Modular</a></span>
-    </li>
-    <li>
-      <span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="">ML</a><a class="tag-cloud-link" href="">Adaptive Compilation</a><a class="tag-cloud-link" href="">MilePost GCC</a></span>
-    </li>
-  </ul>
-</div>
-<!-- inject-menu4-end -->
-
+                        <!-- inject-scholars -->
+<ul class="tagcloud-list">
+<li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://github.com/xavierleroy">Xavier Leroy</a></span>Coq, OCaml, CompCert</li>
+<li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://en.wikipedia.org/wiki/Chris_Lattner">Chris Lattner</a></span>LLVM, Swift, MLIR, CRICT, Modular</li>
+<li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://en.wikipedia.org/wiki/Michael_O%27Boyle">Michael O’Boyle</a></span>ML, Adaptive Compilation, MilePost GCC</li>
+</ul>
+<!-- inject-scholars-end -->
                     </div>
                 </article>
                 <article class="second-child" id="menu5">
-                    <div class="entry-meta meta-0 mb-10 text-uppercase font-heading">
-                        <a href=""><span class="post-in">Global</span></a>
-                        <a href=""><span class="post-in">Economics</span></a>
-                    </div>
-
                     <h2 class="post-title">
-                        <a href="">开源Git仓库</a>
+                        <a href="javascript:void(0)">开源Git仓库</a>
                     </h2>
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
-                    <!-- inject-menu5 -->
+                    <h3 class="post-title" id="menu5sub1">
+                        编译器
+                    </h3>
+                    <!-- inject-repos-compilers -->
 <div class="row">
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/llvm/llvm-project" target="_blank">
-            <img src="https://llvm.org/img/LLVMWyvernSmall.png"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>LLVM</b></mark></p>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <a class="block-github" href="https://gcc.gnu.org/" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/GNU_Compiler_Collection_logo.svg"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>GCC</b></mark></p>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/AbsInt/CompCert" target="_blank">
-            <img src="https://compcert.org/acm-award-2.png"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>CompCert</b></mark></p>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/llvm/circt" target="_blank">
-            <img src="https://circt.llvm.org/includes/img/circt-logo.svg"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>CIRCT</b></mark></p>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/oracle/graal" target="_blank">
-            <img src="https://github.com/oracle/graal/raw/master/.github/assets/logo_320x64.svg"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>GraalVM</b></mark></p>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/apache/tvm" target="_blank">
-            <img src="https://raw.githubusercontent.com/apache/tvm-site/main/images/logo/tvm-logo-small.png"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>TVM</b></mark></p>
-        </div>
-    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/llvm/llvm-project" target="_blank">            <img src="https://llvm.org/img/LLVMWyvernSmall.png"/>        </a>        <div class="block-github-text">            <p><mark><b>LLVM</b></mark></p>        </div>    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://gcc.gnu.org/" target="_blank">            <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/GNU_Compiler_Collection_logo.svg"/>        </a>        <div class="block-github-text">            <p><mark><b>GCC</b></mark></p>        </div>    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/AbsInt/CompCert" target="_blank">            <img src="https://compcert.org/acm-award-2.png"/>        </a>        <div class="block-github-text">            <p><mark><b>CompCert</b></mark></p>        </div>    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/oracle/graal" target="_blank">            <img src="https://github.com/oracle/graal/raw/master/.github/assets/logo_320x64.svg"/>        </a>        <div class="block-github-text">            <p><mark><b>GraalVM</b></mark></p>        </div>    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/moonbitlang/core" target="_blank">            <img src="https://avatars.githubusercontent.com/u/124848646?s=200&v=4"/>        </a>        <div class="block-github-text">            <p><mark><b>moonbit</b></mark></p>        </div>    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/v8/v8" target="_blank">            <img src="https://avatars.githubusercontent.com/u/113781?s=200&v=4"/>        </a>        <div class="block-github-text">            <p><mark><b>V8</b></mark></p>        </div>    </div>
 </div>
 <div class="row">
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/AliveToolkit/alive2" target="_blank">
-            <img src="https://github.com/AliveToolkit/alive2/raw/master/imgs/alive2.png"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>Alive2</b></mark></p>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/kc-ml2/llvm-flow" target="_blank">
-            <img src="https://github.com/kc-ml2/llvm-flow/raw/main/logo.png"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>llvm-flow</b></mark></p>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/upx/upx" target="_blank">
-            <img src="assets/imgs/git/upx.png"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>upx</b></mark></p>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/moonbitlang/core" target="_blank">
-            <img src="https://avatars.githubusercontent.com/u/124848646?s=200&v=4"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>moonbit</b></mark></p>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/v8/v8" target="_blank">
-            <img src="https://avatars.githubusercontent.com/u/113781?s=200&v=4"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>V8</b></mark></p>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/bytecodealliance/wasmtime" target="_blank">
-            <img src="https://avatars.githubusercontent.com/u/54038801?s=200&v=4"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>wasmtime</b></mark></p>
-        </div>
-    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/bytecodealliance/wasmtime" target="_blank">            <img src="https://avatars.githubusercontent.com/u/54038801?s=200&v=4"/>        </a>        <div class="block-github-text">            <p><mark><b>wasmtime</b></mark></p>        </div>    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/TinyCC/tinycc" target="_blank">            <img src="https://avatars.githubusercontent.com/u/18518793?s=200&v=4"/>        </a>        <div class="block-github-text">            <p><mark><b>TinyCC</b></mark></p>        </div>    </div>
 </div>
+<!-- inject-repos-compilers-end -->
+                    <h3 class="post-title" id="menu5sub2">
+                        AI编译
+                    </h3>
+                    <!-- inject-repos-ai -->
 <div class="row">
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/TinyCC/tinycc" target="_blank">
-            <img src="https://avatars.githubusercontent.com/u/18518793?s=200&v=4"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>TinyCC</b></mark></p>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <a class="block-github" href="https://github.com/rui314/mold" target="_blank">
-            <img src="https://avatars.githubusercontent.com/u/47400?v=4"/>
-        </a>
-        <div class="block-github-text">
-            <p><mark><b>Mold</b></mark></p>
-        </div>
-    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/apache/tvm" target="_blank">            <img src="https://raw.githubusercontent.com/apache/tvm-site/main/images/logo/tvm-logo-small.png"/>        </a>        <div class="block-github-text">            <p><mark><b>TVM</b></mark></p>        </div>    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/llvm/circt" target="_blank">            <img src="https://circt.llvm.org/includes/img/circt-logo.svg"/>        </a>        <div class="block-github-text">            <p><mark><b>CIRCT</b></mark></p>        </div>    </div>
 </div>
-<!-- inject-menu5-end -->
-
+<!-- inject-repos-ai-end -->
+                    <h3 class="post-title" id="menu5sub3">
+                        工具
+                    </h3>
+                    <!-- inject-repos-tools -->
+<div class="row">
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/rui314/mold" target="_blank">            <img src="https://avatars.githubusercontent.com/u/47400?v=4"/>        </a>        <div class="block-github-text">            <p><mark><b>Mold</b></mark></p>        </div>    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/AliveToolkit/alive2" target="_blank">            <img src="https://github.com/AliveToolkit/alive2/raw/master/imgs/alive2.png"/>        </a>        <div class="block-github-text">            <p><mark><b>Alive2</b></mark></p>        </div>    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/kc-ml2/llvm-flow" target="_blank">            <img src="https://github.com/kc-ml2/llvm-flow/raw/main/logo.png"/>        </a>        <div class="block-github-text">            <p><mark><b>llvm-flow</b></mark></p>        </div>    </div>
+    <div class="col-md-2">        <a class="block-github" href="https://github.com/upx/upx" target="_blank">            <img src="assets/imgs/git/upx.png"/>        </a>        <div class="block-github-text">            <p><mark><b>upx</b></mark></p>        </div>    </div>
+</div>
+<!-- inject-repos-tools-end -->
+                    <h3 class="post-title" id="menu5sub4">
+                        编程语言
+                    </h3>
+                    <!-- inject-langs -->
+                    <!-- inject-langs-end -->
                 </article>
                 <article class="second-child" id="menu6">
                     <h2 class="post-title">
-                        <a href="">高引用论文及综述</a>
+                        <a href="javascript:void(0)">高引用论文及综述</a>
                     </h2>
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
                     <div class="entry-main-content">
-                        <ul>
-                            <!-- inject-menu6 -->
+                        <!-- inject-papers -->
+<ul class="tagcloud-list">
 <li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="http://dl.acm.org/doi/10.5555/977395.977673">CGO</a></span>LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation</li>
-<!-- inject-menu6-end -->
-
-                        </ul>
+</ul>
+<!-- inject-papers-end -->
                     </div>
                 </article>
                 <article class="second-child" id="menu7">
                     <h2 class="post-title">
-                        <a href="">在线交互工具</a>
+                        <a href="javascript:void(0)">在线交互工具</a>
                     </h2>
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
                     <div class="entry-main-content">
-                        <ul>
-                            <!-- inject-menu7 -->
+                        <!-- inject-online-tools -->
+<ul class="tagcloud-list">
 <li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://godbolt.org/">Compiler Explorer</a></span>一款开源的在线交互式工具，实时查看源代码编译后的汇编等输出，方便学习、调试与优化对比。</li>
-<!-- inject-menu7-end -->
-
-                        </ul>
+</ul>
+<!-- inject-online-tools-end -->
                     </div>
                 </article>
                 <article class="second-child" id="menu8">
                     <h2 class="post-title">
-                        <a href="">性能分析与调试</a>
+                        <a href="javascript:void(0)">性能分析与调试</a>
                     </h2>
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
                     <div class="entry-main-content">
-                        <ul>
-                            <!-- inject-menu8 -->
+                        <!-- inject-profiles -->
+<ul class="tagcloud-list">
 <li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://www.gnu.org/software/gdb/">GDB</a></span>最广泛使用的通用调试工具</li>
-<!-- inject-menu8-end -->
-
-                        </ul>
+</ul>
+<!-- inject-profiles-end -->
                     </div>
                 </article>
                 <article class="second-child" id="menu10">
                     <h2 class="post-title">
-                        <a href="">社区与讨论</a>
+                        <a href="javascript:void(0)">社区与讨论</a>
                     </h2>
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
                     <div class="entry-main-content">
-                        <ul>
-                            <!-- inject-menu9 -->
+                        <!-- inject-communities -->
+<ul class="tagcloud-list">
 <li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://discord.com/invite/xS7Z362">LLVM Discord</a></span>LLVM 社区的实时聊天平台，供开发者和爱好者讨论编译器、工具链、贡献指南等相关话题。</li>
-<!-- inject-menu9-end -->
-
-                        </ul>
+</ul>
+<!-- inject-communities-end -->
                     </div>
                 </article>
                 <article class="second-child" id="menu12">
                     <h2 class="post-title">
-                        <a href="">前沿趋势</a>
+                        <a href="javascript:void(0)">前沿趋势</a>
                     </h2>
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
                     <div class="entry-main-content">
                         <div>
-                            <p>要紧跟编译器研究的最新动向，请关注顶级会议（如 CGO、PLDI、ASPLOS）的官网及社交渠道，订阅领先期刊（如 TSE、TOPLAS）的提醒，并利用 RSS 订阅、Twitter 科研博主及专业技术博客，以实时追踪最新突破。</p>
+                            <p>要紧跟编译器研究的最新动向，请关注顶级会议（如 CGO、PLDI、ASPLOS）的官网及社交渠道，订阅领先期刊（如
+                                TSE、TOPLAS）的提醒，并利用 RSS 订阅、Twitter 科研博主及专业技术博客，以实时追踪最新突破。</p>
                         </div>
                         <ol>
                             <li>多级中间表示与可扩展 IR (MLIR &amp; Extensible IRs)</li>
@@ -444,41 +350,39 @@
                 </article>
                 <article class="second-child" id="menu13">
                     <h2 class="post-title">
-                        <a href="">视频教程与讲座</a>
+                        <a href="javascript:void(0)">视频教程与讲座</a>
                     </h2>
                     <div class="entry-meta meta-1 font-medium color-grey mt-15 mb-30">
                         <span class="post-on"><span class="d-none d-md-inline">Updated on</span>June 2025</span>
                     </div>
                     <div class="entry-main-content">
-                        <ul>
-                            <!-- inject-menu12 -->
+                        <!-- inject-multimedia -->
+<ul class="tagcloud-list">
 <li><span class="tagcloud mt-50 widget_tagcloud"><a class="tag-cloud-link" href="https://llvm.org/docs/tutorial/">LLVM Tutorial</a></span>LLVM简易开发教程</li>
-<!-- inject-menu12-end -->
-
-                        </ul>
+</ul>
+<!-- inject-multimedia-end -->
                     </div>
                 </article>
             </div>
-            <!--Loop list 1-->
         </div>
         <div class="col-1-5 col-sm-6 right-sidbar order-3 order-lg-3">
             <div class="sidebar-widget widget-about text-center">
                 <a href="https://github.com/yilingqinghan"><img alt="" class="about-author-img mb-25"
-                                           src="http://via.placeholder.com/600x600"/></a>
+                                                                src="http://via.placeholder.com/600x600"/></a>
                 <h3 class="mb-25">逸翎清晗</h3>
                 <p class="author-bio">
                     毫端蕴秀临霜写，口角噙香对月吟
                 </p>
-                <a class="btn border-color-1 primary-color" href="https://github.com/yilingqinghan/awesome-modern-compiler/issues">Contact Me</a>
+                <a class="btn border-color-1 primary-color"
+                   href="https://github.com/yilingqinghan/awesome-modern-compiler/issues">Contact Me</a>
             </div>
-            <!--About-->
             <div class="sidebar-widget">
                 <div class="widget-header widget-header-style-1 position-relative mb-30 wow fadeInUp animated">
                     <h4 class="widget-title mt-5 mb-30" id="menu14sub1">会议</h4>
                 </div>
                 <div class="entry-main-content">
-                    <ul>
-                        <!-- inject-menu14 -->
+                    <!-- inject-confs -->
+<ul class="conference-list">
 <li><a href="https://dl.acm.org/conference/cgo">CGO</a><span class="badge badge-core">CORE A</span><span class="badge badge-core">CCF B</span></li>
 <li><a href="https://dl.acm.org/conference/pldi">PLDI</a><span class="badge badge-core">CORE A*</span><span class="badge badge-core">CCF A</span></li>
 <li><a href="https://dl.acm.org/conference/asplos">ASPLOS</a><span class="badge badge-core">CORE A*</span><span class="badge badge-core">CCF A</span></li>
@@ -498,45 +402,43 @@
 <li><a href="https://dl.acm.org/conference/osdi">OSDI</a><span class="badge badge-core">CORE A*</span><span class="badge badge-core">CCF A</span></li>
 <li><a href="https://dl.acm.org/conference/nips">NeurIPS</a><span class="badge badge-core">CORE A*</span><span class="badge badge-core">CCF A</span></li>
 <li><a href="https://dl.acm.org/conference/emnlp">EMNLP</a><span class="badge badge-core">CORE A*</span><span class="badge badge-core">CCF B</span></li>
-<!-- inject-menu14-end -->
-                    </ul>
+</ul>
+<!-- inject-confs-end -->
                 </div>
                 <div class="widget-header widget-header-style-1 position-relative mb-30 wow fadeInUp animated">
                     <h4 class="widget-title mt-5 mb-30" id="menu14sub2">期刊</h4>
                 </div>
                 <div class="entry-main-content">
-                    <ul>
-                        <!-- inject-menu15 -->
+                    <!-- inject-journals -->
+<ul class="conference-list">
 <li><a href="https://dl.acm.org/journal/taco">TACO</a><span class="badge badge-core">JCI 0.46</span><span class="badge badge-core">JCR Q3</span><span class="badge badge-core">SCI Q2</span><span class="badge badge-core">CCF A</span></li>
 <li><a href="https://dl.acm.org/journal/tocs">TOCS</a><span class="badge badge-core">JCI 0.52</span><span class="badge badge-core">JCR Q2</span><span class="badge badge-core">CCF A</span></li>
 <li><a href="https://dl.acm.org/journal/toplas">TOPLAS</a><span class="badge badge-core">JCI 0.57</span><span class="badge badge-core">JCR Q3</span><span class="badge badge-core">CCF A</span></li>
 <li><a href="https://dl.acm.org/journal/tosem">TOSEM</a><span class="badge badge-core">JCI 1.7</span><span class="badge badge-core">JCR Q1</span><span class="badge badge-core">CCF A</span></li>
 <li><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=32">TSE</a><span class="badge badge-core">JCI 1.76</span><span class="badge badge-core">JCR Q1</span><span class="badge badge-core">CCF A</span></li>
 <li><a href="https://link.springer.com/journal/10515">ASE</a><span class="badge badge-core">JCI 0.81</span><span class="badge badge-core">JCR Q2</span><span class="badge badge-core">CCF B</span></li>
-<!-- inject-menu15-end -->
-                    </ul>
+</ul>
+<!-- inject-journals-end -->
                 </div>
                 <div class="widget-header widget-header-style-1 position-relative mb-30 wow fadeInUp animated">
                     <h4 class="widget-title mt-5 mb-30" id="menu14sub3">研讨会</h4>
                 </div>
-
+                <div class="entry-main-content">
+                    <!-- inject-workshops -->
+                    <!-- inject-workshops-end -->
+                </div>
             </div>
-            <!--End Popular post-->
             <div class="sidebar-widget widget_tagcloud wow fadeInUp animated" id="menu11">
                 <div class="widget-header widget-header-style-1 position-relative mb-30">
                     <h5 class="widget-title mt-5 mb-30">术语表</h5>
                 </div>
                 <div class="tagcloud mt-50">
-                    <!-- inject-menu13 -->
-
-<!-- inject-menu13-end -->
-
-                    <a class="tag-cloud-link" href="https://en.wikipedia.org/wiki/Ahead-of-time_compilation">AOT</a>
+                    <!-- inject-glossaries -->
+<li><a href="https://en.wikipedia.org/wiki/Ahead-of-time_compilation">AOT</a></li>
+<!-- inject-glossaries-end -->
                 </div>
             </div>
-            <!--End Tagcloud-->
         </div>
-        <!--End right sidebar-->
     </main>
     <footer>
         <div class="bottom row no-gutters">
@@ -552,8 +454,10 @@
                                     <h5 class="widget-title mt-5 mb-30">推荐资源</h5>
                                 </div>
                                 <ul class="mt-50">
-                                    <li><a href="https://yilingqinghan.github.io/paper-chart-gallery/">学术论文优秀图片画廊</a></li>
-                                    <li><a href="https://yilingqinghan.github.io/AI4Compiler-Collection/">AI for Compiler领域论文</a></li>
+                                    <!-- inject-recommend -->
+<li><a href="https://yilingqinghan.github.io/paper-chart-gallery/">学术论文优秀图片画廊</a></li>
+<li><a href="https://yilingqinghan.github.io/AI4Compiler-Collection/">AI for Compiler领域论文</a></li>
+<!-- inject-recommend-end -->
                                 </ul>
                             </div>
                         </div>
@@ -563,8 +467,8 @@
                                     <h5 class="widget-title mt-5 mb-30">新闻</h5>
                                 </div>
                                 <ul class="twitter-widget-inner mt-50">
-                                    <li class="twitter-content"></li>
-                                    <li class="twitter-content"></li>
+                                    <!-- inject-news -->
+                                    <!-- inject-news-end -->
                                 </ul>
                             </div>
                         </div>
@@ -666,12 +570,13 @@
 <script src="./assets/js/main.js"></script>
 <script>
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const target = document.querySelector(this.getAttribute('href'));
             if (!target) return;
             e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth' });
-            // 可选：更新地址栏 hash
+            const offset = window.innerHeight * 0.07;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({top, behavior: 'smooth'});
             history.pushState(null, '', this.getAttribute('href'));
         });
     });
@@ -719,7 +624,7 @@
     function scrollToMatch(idx) {
         if (!matchElements.length) return;
         const el = matchElements[idx];
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.scrollIntoView({behavior: 'smooth', block: 'center'});
         el.style.outline = '2px solid orange';
     }
 
@@ -744,22 +649,20 @@
         document.getElementById('search_result').textContent = '';
     });
 
-    document.querySelector('.search_field').addEventListener('keydown', function(e) {
+    document.querySelector('.search_field').addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
             e.preventDefault();
             searchAndHighlight();
-        }
-        else if (e.key === 'ArrowDown') {
+        } else if (e.key === 'ArrowDown') {
             e.preventDefault();
             nextMatch();
-        }
-        else if (e.key === 'ArrowUp') {
+        } else if (e.key === 'ArrowUp') {
             e.preventDefault();
             prevMatch();
         }
     });
 
-    document.getElementById('search_button').addEventListener('click', function(e) {
+    document.getElementById('search_button').addEventListener('click', function (e) {
         e.preventDefault();
         searchAndHighlight();
     });
