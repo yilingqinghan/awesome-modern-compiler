@@ -40,6 +40,12 @@
 
 - [CIRCT](https://github.com/llvm/circt) <!--![circt](https://circt.llvm.org/includes/img/circt-logo.svg)-->
 
+- [XLA](https://github.com/openxla/xla) <!--![XLA](https://avatars.githubusercontent.com/u/107584881?s=200&v=4)-->
+
+- [Triton](https://github.com/triton-lang/triton) <!--![Triton](https://camo.githubusercontent.com/94edaa23faf33f9f7e76384487d4480ebd006ce791e63aba1fdbe0cf4adc06df/68747470733a2f2f6c68352e676f6f676c6575736572636f6e74656e742e636f6d2f777a514b457354466b72674e514f394a6a68474835774676736c4a723173614c744c614a5f613646705f674e454e70767433564737426d7a74776e67553968464a615534435077476977316f7051744476546b4c72785752624f5f613132512d70644553574867746d686549486350624f4c355a4d43345453694a566535747931773d7733353137)-->
+
+- [Glow](https://github.com/pytorch/glow) <!--![Glow](https://github.com/pytorch/glow/raw/master/docs/logo.svg)-->
+
 
 ### 工具
 
@@ -52,6 +58,19 @@
 - [upx](https://github.com/upx/upx) <!--![upx](assets/imgs/git/upx.png)-->
 
 ### 编程语言
+- [Rust](https://github.com/rust-lang/rust) <!--![v8](https://raw.githubusercontent.com/rust-lang/www.rust-lang.org/master/static/images/rust-social-wide-light.svg)-->
+
+- [Swift](https://github.com/swiftlang/swift) <!--![swift](https://camo.githubusercontent.com/23a4436b7a796838b682e61414bc7e99aaa6a6302b9df72e234e4fd9a3bb49df/68747470733a2f2f7777772e73776966742e6f72672f6173736574732f696d616765732f73776966742e737667)-->
+
+- [Go](https://github.com/golang/go) <!--![go](https://camo.githubusercontent.com/ff89c51c9e5a3de2b752b37bf6ab32401b9649d7acb1633ece9a40c85ae28b95/68747470733a2f2f676f6c616e672e6f72672f646f632f676f706865722f6669766579656172732e6a7067)-->
+
+- [Zig](https://github.com/ziglang/zig) <!--![zig](https://camo.githubusercontent.com/94febc6ff27c1d45bcbbf00a87f8b4c953f0fd01c520dbfa7b88a71be694b54d/68747470733a2f2f7a69676c616e672e6f72672f696d672f7a69672d6c6f676f2d64796e616d69632e737667)-->
+
+- [Nim](https://github.com/nim-lang/Nim) <!--![nim](https://raw.githubusercontent.com/nim-lang/assets/master/Art/logo-crown.png)-->
+
+- [Julia](https://github.com/JuliaLang/julia) <!--![nim](https://github.com/JuliaLang/julia/raw/master/doc/src/assets/logo.svg)--> 
+
+- [Crystal](https://github.com/crystal-lang/crystal) <!--![nim](https://github.com/crystal-lang/crystal/raw/master/doc/assets/crystal-born-and-raised.svg)--> 
 
 ## 高引用论文与综述
 
