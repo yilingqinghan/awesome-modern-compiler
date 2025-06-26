@@ -6,6 +6,8 @@
 - [Stanford-CS143-Compilers](https://web.stanford.edu/class/cs143/) - COOL语言的编译器，最终编译为MIPS汇编，在模拟器上运行，使用龙书作为教材。
 - [推荐·北京大学编译原理实践](https://pku-minic.github.io/online-doc/#/) - SysY 编译到 RISC-V 编译器，使用类LLVM IR——Koopa IR，开源教程及其配套工具、实验环境。
 - [推荐·中科大: Principles and Techniques of Compiler](https://ustc-compiler-principles.github.io/2023/) - 6个实验分别涵盖完整编译器，后端代码实现龙芯汇编。
+- [《机器学习系统：设计和实现》在线教程](https://openmlsys.github.io/index.html) - 做世界上第一本全面讲述机器学习系统知识的开源书籍
+- [ChinaSys学术开源创新平台](https://chinasys.org/opensource/index.html) -(https://chinasys.org/opensource/index.html) - 通过领域、关键词、论文标题或作者姓名筛选开源论文
 
 ## 动手实践
 

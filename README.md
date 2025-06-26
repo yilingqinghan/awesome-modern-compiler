@@ -23,6 +23,9 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 - [Stanford-CS143-Compilers](https://web.stanford.edu/class/cs143/) - A compiler for the COOL language that generates MIPS assembly and runs on a simulator, using <b>Compilers: Principles, Techniques, and Tools</b> as the textbook.
 - [Peking University: Compiler Principles Practice](https://pku-minic.github.io/online-doc/#/) – A SysY-to-RISC-V compiler built on Koopa IR (an LLVM-like IR), accompanied by an open-source tutorial, toolchain, and experimental environment.
 - [USTC: Principles and Techniques of Compiler](https://ustc-compiler-principles.github.io/2023/) – Six hands-on labs covering a full compiler pipeline, with backend code generating Loongson assembly.
+- [Machine Learning Systems: Design and Implementation Online Tutorial](https://openmlsys.github.io/index.html) – The world’s first comprehensive open-source book on machine learning systems.
+- [ChinaSys Academic Open-Source Innovation Platform](https://chinasys.org/opensource/index.html) – An open platform for filtering research papers by domain, keywords, title, or author.
+
 
 ## Hands-on Practice
 
