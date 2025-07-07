@@ -1,4 +1,4 @@
 set -ex
 
-python inject.py --revert
-python inject.py
+python3 inject.py --revert
+python3 inject.py

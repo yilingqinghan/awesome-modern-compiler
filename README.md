@@ -25,6 +25,7 @@ You can explore the live version of this site at: https://yilingqinghan.github.i
 - [USTC: Principles and Techniques of Compiler](https://ustc-compiler-principles.github.io/2023/) – Six hands-on labs covering a full compiler pipeline, with backend code generating Loongson assembly.
 - [Machine Learning Systems: Design and Implementation Online Tutorial](https://openmlsys.github.io/index.html) – The world’s first comprehensive open-source book on machine learning systems.
 - [ChinaSys Academic Open-Source Innovation Platform](https://chinasys.org/opensource/index.html) – An open platform for filtering research papers by domain, keywords, title, or author.
+- [ML-Engineering](https://stasosphere.com/machine-learning/) - Machine Learning Engineering Open Book
 
 
 ## Hands-on Practice

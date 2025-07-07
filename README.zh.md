@@ -8,6 +8,7 @@
 - [推荐·中科大: Principles and Techniques of Compiler](https://ustc-compiler-principles.github.io/2023/) - 6个实验分别涵盖完整编译器，后端代码实现龙芯汇编。
 - [《机器学习系统：设计和实现》在线教程](https://openmlsys.github.io/index.html) - 做世界上第一本全面讲述机器学习系统知识的开源书籍
 - [ChinaSys学术开源创新平台](https://chinasys.org/opensource/index.html) -(https://chinasys.org/opensource/index.html) - 通过领域、关键词、论文标题或作者姓名筛选开源论文
+- [ML-Engineering](https://stasosphere.com/machine-learning/) - 机器学习工程的开源书籍（AI Infra入门）
 
 ## 动手实践
 
